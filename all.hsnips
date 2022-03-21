@@ -1,0 +1,111 @@
+snippet <> "angle brackets" iA
+<$1>$0
+endsnippet
+
+snippet ark "angle brackets" iA
+<$1>$0
+endsnippet
+
+snippet Ark "angle brackets" iA
+<$1>$0
+endsnippet
+
+snippet () "parentheses" iA
+($1)$0
+endsnippet
+
+snippet prs "parentheses" iA
+($1)$0
+endsnippet
+
+snippet Prs "parentheses" iA
+($1)$0
+endsnippet
+
+snippet [] "brackets" iA
+[$1]$0
+endsnippet
+
+snippet brk "brackets" iA
+[$1]$0
+endsnippet
+
+snippet Brk "brackets" iA
+[$1]$0
+endsnippet
+
+snippet {} "braces" iA
+{$1}$0
+endsnippet
+
+snippet brs "braces" iA
+{$1}$0
+endsnippet
+
+snippet Brs "braces" iA
+{$1}$0
+endsnippet
+
+snippet usc "underscore" iA
+_
+endsnippet
+
+snippet asr "asterisk" iA
+*
+endsnippet
+
+snippet sls "backslash" iA
+\
+endsnippet
+
+snippet plus "plus" iA
++
+endsnippet
+
+snippet minus "minus" iA
+-
+endsnippet
+
+snippet dvd "divide" iA
+/
+endsnippet
+
+snippet ql "equals" iA
+=
+endsnippet
+
+snippet Qts "double quotes" iA
+"$1"$0
+endsnippet
+
+snippet qts "single quotes" iA
+'$1'$0
+endsnippet
+
+snippet prm "prime" iA
+'
+endsnippet
+
+snippet gtt "greater than" iA
+>
+endsnippet
+
+snippet ltt "less than" iA
+<
+endsnippet
+
+snippet qsm "question mark" iA
+?
+endsnippet
+
+snippet aps "ampersand" iA
+&
+endsnippet
+
+snippet smc "semicolon" iA
+;
+endsnippet
+
+snippet cln "colon" iA
+:
+endsnippet

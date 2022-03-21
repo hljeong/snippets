@@ -1,0 +1,327 @@
+snippet imm "inline math" iA
+$$1$
+endsnippet
+
+snippet bm "block math" b
+\[
+  $0
+\]
+endsnippet
+
+snippet bmm "multiline block math" b
+\begin{align*}
+  $0
+\end{align*}
+endsnippet
+
+snippet bml "labeled block math" b
+\begin{equation} \label{$1}
+  $0
+\end{equation}
+endsnippet
+
+snippet bmt "tagged block math" b
+\begin{equation} \tag{$1}
+  $0
+\end{equation}
+endsnippet
+
+snippet begin "begin/end block" ib
+\begin{$1}
+  $0
+\end{$1}
+endsnippet
+
+snippet fxgraph "y = f(x) graph" b
+\begin{center}
+  \begin{tikzpicture}[scale = 0.75]
+    \begin{axis} [
+      % xmin = <min>, xmax = <max>, ymin, ymax
+      % xtick = {<ticks>}, xticklabels = {<labels>}, ytick, yticklabels
+      % xlabel = <label>, ylabel
+      % domain = <min> : <max>, samples = <samples>
+      % axis lines = middle
+    ]
+      \addplot[no marks]{$1};
+    \end{axis}
+  \end{tikzpicture}
+\end{center}
+endsnippet
+
+snippet sb "subscript" iA
+_
+endsnippet
+
+snippet Sb "subscript group" iA
+_{$1}$0
+endsnippet
+
+snippet sB "avoid snippet sb" iA
+sb
+endsnippet
+
+snippet td "superscript" iA
+^
+endsnippet
+
+snippet Td "superscript group" iA
+^{$1}$0
+endsnippet
+
+snippet `([^a-zA-Z])im([a-oq-zA-Z])` "single character inline math" A
+``rv = m[1] + "\$" + m[2] + "\$"``
+endsnippet
+
+// snippet `(^|[ (])im([a-oq-zA-Z])` "single character inline math" A
+// ``rv = m[1] + "\$" + m[2] + "\$"``
+// endsnippet
+
+snippet `(^|[ (])iM([a-zA-Z])` "avoid single character inline math" A
+``rv = m[1] + "im" + m[2]``
+endsnippet
+
+snippet sls "slash" iA
+\
+endsnippet
+
+snippet lkj "new slash" iA
+\
+endsnippet
+
+snippet plus "plus" iA
++
+endsnippet
+
+snippet Plus "avoid snippet plus" iA
+plus
+endsnippet
+
+snippet minus "minus" iA
+-
+endsnippet
+
+snippet Minus "avoid snippet minus" iA
+minus
+endsnippet
+
+snippet dvd "divide" iA
+/
+endsnippet
+
+snippet ql "equals" iA
+=
+endsnippet
+
+snippet aps "ampersand" A
+&
+endsnippet
+
+snippet gtt "greater than" A
+>
+endsnippet
+
+snippet ltt "less than" A
+<
+endsnippet
+
+snippet prm "prime" iA
+'
+endsnippet
+
+snippet asr "asterisk" iA
+*
+endsnippet
+
+snippet nl "newline" A 
+\\\\
+endsnippet
+
+snippet apes "aligned equals" A
+&=
+endsnippet
+
+snippet dfes "define" A
+:=
+endsnippet
+
+snippet `(^|[ \({\$_\^])alpha` "alpha" A
+``rv = m[1]``\alpha
+endsnippet
+
+snippet `([ \({]\$?)beta` "beta" A
+``rv = m[1]``\beta
+endsnippet
+
+snippet `([ \({]\$?)gamma` "gamma" A
+``rv = m[1]``\gamma
+endsnippet
+
+snippet `([ \({]\$?)delta` "delta" A
+``rv = m[1]``\delta
+endsnippet
+
+snippet `([ \({]\$?)eps` "epsilon" A
+``rv = m[1]``\epsilon
+endsnippet
+
+snippet `([ \({]\$?)lambda` "lambda" A
+``rv = m[1]``\lambda
+endsnippet
+
+snippet gmu "mu" iA
+\mu
+endsnippet
+
+snippet gpi "pi" iA
+\pi
+endsnippet
+
+snippet tau "tau" iA
+\tau
+endsnippet
+
+snippet phi "phi" iA
+\phi
+endsnippet
+
+snippet rho "rho" iA
+\rho
+endsnippet
+
+snippet sigma "sigma" iA
+\sigma
+endsnippet
+
+snippet theta "theta" iA
+\theta
+endsnippet
+
+snippet omega "omega" iA
+\omega
+endsnippet
+
+snippet function "funtion"
+\$$1 \colon $2 \to $3\$$0
+endsnippet
+
+snippet ddd "dot dot dot" iA
+\dots
+endsnippet
+
+snippet fmat "formatted matrix" i
+\begin{fbmatrix}{$1}
+  $0
+\end{fbmatrix}
+endsnippet
+
+snippet tmpl "template" b
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin = 1in]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\iffalse \usepackage{palatino} \fi
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows}
+\usepackage{pgfplots}
+\pgfplotsset{compat = 1.17}
+\usepackage{multicol}
+\usepackage[mathscr]{euscript}
+\let \euscr \mathscr
+\let \mathscr \relax
+\usepackage[scr]{rsfso}
+\usepackage{siunitx}
+\sisetup{inter-unit-product = \cdot, per-mode = symbol}
+\usepackage{graphicx}
+\graphicspath{{./img/}}
+\usepackage{esint}
+\usepackage{hyperref} % \eqref{<label>}
+\usepackage{enumitem} % [noitemsep, topsep = <sep>] for enumerate & itemize
+\usepackage{mathtools} % \xRightarrow[math below]{math above}
+\usepackage{microtype}
+\usepackage{soul} % \hl{<text>}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\F}{\mathbb F}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\union}{\cup}
+\newcommand{\intersection}{\cap}
+\newcommand{\nullset}{\varnothing}
+\renewcommand{\vec}{\mathbf}
+\newcommand{\vvec}{\boldsymbol}
+\newcommand{\norm}[1]{\left \lVert #1 \right \rVert}
+\newcommand{\set}[2]{\left \{ #1: #2 \right \\}}
+\newcommand{\setgen}[2]{\left \{ \, #1 ~ : ~ #2 \, \right \\}}
+\newcommand{\setof}[1]{\left \{ #1 \right \\}}
+\newcommand{\ip}[2]{\left \langle #1, #2 \right \rangle} % inner product
+\newcommand{\A}{\forall\,}
+\newcommand{\E}{\exists\,}
+\newcommand{\nE}{\nexists\,}
+\newcommand{\ve}{\varepsilon}
+\newcommand{\abs}[1]{\left | #1 \right |}
+\newcommand{\paren}[1]{\left ( #1 \right )}
+\DeclareMathOperator{\proj}{proj}
+\newcommand{\powerset}{\mathscr P}
+\DeclareSIUnit \atmosphere {atm}
+\newcommand{\Part}[1]{\operatorname{Part} \paren{#1}}
+\newcommand{\vol}[1]{\operatorname{vol} \paren{#1}}
+\newcommand{\vecof}[1]{\left \langle #1 \right \rangle}
+\newcommand{\Div}{\operatorname{div}}
+\newcommand{\curl}{\operatorname{curl}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pdx}[1]{\frac{\partial #1}{\partial x}}
+\newcommand{\pdy}[1]{\frac{\partial #1}{\partial y}}
+\newcommand{\pdz}[1]{\frac{\partial #1}{\partial z}}
+\newcommand{\pdo}[1]{\frac{\partial}{\partial #1}}
+\newcommand{\floor}[1]{\left \lfloor #1 \right \rfloor}
+\newcommand{\ceil}[1]{\left \lceil #1 \right \rceil}
+\newcommand{\inO}[1]{\tikz[baseline=(char.base)]{\node[shape = circle, draw, inner sep = 2pt] (char) {#1};}}
+\newcommand{\tab}{\phantom{ } \phantom{ } }
+\newcommand{\ls}{<\phantom{}< } % left shift
+\newcommand{\rs}{>\phantom{}> } % right shift
+\newenvironment{fbmatrix}[1]{\left [ \begin{array}{#1}}{\end{array} \right ]}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\centergraphics}[2][]{\begin{center}\includegraphics[#1]{#2}\end{center}}
+\newcommand{\vspan}{\operatorname{span}}
+\newcommand{\spanof}[1]{\vspan\setof{#1}}
+\newcommand{\bvecof}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\nullity}{\operatorname{nullity}}
+\newcommand{\tr}{\operatorname{tr}} % trace function
+\mathchardef \hyphen = "2D % hyphens in math mode
+\newtheorem{thm}{Theorem} % theorem environment
+\newtheorem{defn}{Definition} % definition environment
+\newtheorem{lem}{Lemma} % lemma environment
+\newcommand{\noparskip}{\vspace{-\parskip}}
+\makeatletter
+\def\namedlabel#1#2{\begingroup
+  #2%
+  \def\@currentlabel{#2}%
+  \phantomsection\label{#1}\endgroup
+}
+\makeatother % \namedlabel{<label>}{<text>} in list item for \ref{<label>}
+\newcommand{\toc}{\microtypesetup{protrusion = false} \tableofcontents \microtypesetup{protrusion = true}}
+\newcommand{\Dom}{\operatorname{Dom}}
+\newcommand{\Ran}{\operatorname{Ran}}
+
+\newenvironment{lenumerate}{\begin{enumerate}[leftmargin = 0pt]\setlength{\parskip}{0.8em}}{\end{enumerate}}
+\newenvironment{answer}{\spc \color{red} \textbf{\textit{Solution.}} \color{black}}{\spc}
+\newcommand{\spc}{\vspace{0.25cm}}
+
+\linespread{1.2}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8em}
+
+\begin{document}
+
+$1
+
+\end{document}
+endsnippet

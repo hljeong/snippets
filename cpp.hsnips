@@ -1,0 +1,123 @@
+# quality of life
+
+## operators
+
+snippet mminus "minus minus" iA
+--
+endsnippet
+
+snippet pplus "plus plus" iA
+++
+endsnippet
+
+snippet neq "not equal to" A
+!=
+endsnippet
+
+snippet leq "less than or equal to" A
+<=
+endsnippet
+
+snippet geq "greater than or equal to" A
+>=
+endsnippet
+
+snippet or "or" A
+||
+endsnippet
+
+snippet and "and" A
+&&
+endsnippet
+
+snippet `[ \(]not` "not" A
+``rv = m[0][0]``!
+endsnippet
+
+## input
+
+snippet rin "read" A
+cin >>
+endsnippet
+
+snippet `(>> .* )(then)` "then read" A
+``rv = m[1]``>>
+endsnippet
+
+## output 
+
+snippet prln "print line" A
+cout << $1 << endl;$0
+endsnippet
+
+snippet `(<< .* )(then)` "then print" A
+``rv = m[1]``<< ' ' <<
+endsnippet
+
+## if
+
+# snippet `if(l)? ` "if" A
+
+# endsnippet
+
+## for
+
+snippet `for([ldse]*)([ijk]) ` "for" A
+``
+let stop = 0;
+let flags = m[1];
+let decreasing = flags.includes('d');
+let set = flags.includes('s');
+let toggle_equals = flags.includes('e');
+let line = flags.includes('l');
+let varname = m[2];
+let start = 0;
+let check = '<';
+let end = 0;
+let increment = '++';
+if (decreasing || set) {
+  start = snip.tabstop(++stop);
+}
+if (decreasing) {
+  if (toggle_equals) {
+    check = '>';
+  } else {
+    check = '>=';
+  }
+  increment = '--';
+} else if (toggle_equals) {
+  check = '<=';
+}
+if (!decreasing || set) {
+  end = snip.tabstop(++stop);
+}
+if (line) {
+  rv = `for (int ${varname} = ${start}; ${varname} ${check} ${end}; ${increment}${varname}) ${snip.tabstop(0)}`;
+} else {
+  rv = `for (int ${varname} = ${start}; ${varname} ${check} ${end}; ${increment}${varname}) \{\n  ${snip.tabstop(0)}\n\}`;
+}
+``
+endsnippet
+
+
+
+## template
+
+snippet tmpl "template"
+#include <bits/stdc++.h>
+#define A first
+#define B second
+#define vc vector
+using namespace std;
+using ll = long long;
+using vi = vc<int>;
+using vll = vc<ll>;
+using pii = pair<int, int>;
+
+template<class T> bool ckmin(T& a, const T& b) { return b < a ? a = b, 1 : 0; }
+template<class T> bool ckmax(T& a, const T& b) { return a < b ? a = b, 1 : 0; }
+
+int main() {
+  $0
+}
+endsnippet

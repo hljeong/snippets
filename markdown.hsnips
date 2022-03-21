@@ -1,0 +1,23 @@
+snippet imm "math" A
+$$1$
+endsnippet
+
+snippet icb "inline code" iA
+`$1`$0
+endsnippet
+
+snippet bf "bold" iA
+**$1**$0
+endsnippet
+
+snippet itl "italics" iA
+*$1*$0
+endsnippet
+
+snippet lnk "link" iA
+[$1]($2)$0
+endsnippet
+
+snippet emdash "em dash" iA
+&mdash;
+endsnippet
