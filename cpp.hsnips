@@ -2,9 +2,12 @@
 
 ## if
 ## `pp[a-zA-Z]` --> `++${m[1]}` ?
-## `[a-zA-Z]  [a-zA-Z0-9]` --> `${m[1]}[${m[2]}$1]$0` ?
 
 # test
+
+snippet `([a-zA-Z\]])  ([a-zA-Z0-9])` "index" A
+``rv = `${m[1]}[${m[2]}${snip.tabstop(1)}]${snip.tabstop(0)}```
+endsnippet
 
 snippet `([a-zA-Z0-9\]\)"]) p ([a-zA-Z0-9\("])` "plus" A
 ``rv = `${m[1]} + ${m[2]}```
@@ -90,11 +93,23 @@ endsnippet
 
 ## output 
 
-snippet prln "print line" A
+snippet `pr ` "print" A
+cout << $1;$0
+endsnippet
+
+snippet prln "print empty line"
+cout << endl;
+endsnippet
+
+snippet `prln ` "print line" A
 cout << $1 << endl;$0
 endsnippet
 
-snippet `(<< .* )(then)` "then print" A
+snippet `(<< .* )space` "space" A
+``rv = `${m[1]}<< ' '```
+endsnippet
+
+snippet `(<< .* )then` "then print" A
 ``rv = m[1]``<< ' ' <<
 endsnippet
 
