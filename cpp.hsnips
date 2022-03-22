@@ -1,6 +1,10 @@
 # todo
 
-# `pp[a-zA-Z]` --> `++m[1]` ?
+## if
+## `pp[a-zA-Z]` --> `++m[1]` ?
+## `x a y` --> `x & y`
+## `x o y` --> `x | y`
+## `x x y` --> `x ^ y`
 
 # test
 
@@ -45,7 +49,7 @@ snippet peq "plus equals" A
 endsnippet
 
 snippet meq "minus equals" A
-+=
+-=
 endsnippet
 
 snippet eq "equal to" iA
@@ -84,18 +88,12 @@ snippet `(<< .* )(then)` "then print" A
 ``rv = m[1]``<< ' ' <<
 endsnippet
 
-## if
-
-# snippet `if(l)? ` "if" A
-
-# endsnippet
-
 ## for
 
-snippet `for([ldse]*)([ijk]) ` "for" A
+snippet `for([ldse]*)([ijk])([ldse]*) ` "for" A
 ``
 let stop = 0;
-let flags = m[1];
+let flags = m[1] + m[3];
 let decreasing = flags.includes('d');
 let set = flags.includes('s');
 let toggle_equals = flags.includes('e');
