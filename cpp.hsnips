@@ -1,9 +1,3 @@
-# todo
-
-# `[a-zA-Z] p [0-9]` --> `m[1] + m[2]` but be careful when its variable declaration
-# `[a-zA-Z] m [0-9]` --> `m[1] - m[2]` but be careful when its variable declaration
-# `pp[a-zA-Z]` --> `++m[1]` ?
-
 # quality of life
 
 ## operators
