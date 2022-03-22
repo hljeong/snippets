@@ -31,7 +31,7 @@ snippet peq "plus equals" A
 endsnippet
 
 snippet meq "minus equals" A
-+=
+-=
 endsnippet
 
 snippet eq "equal to" iA
@@ -69,12 +69,6 @@ endsnippet
 snippet `(<< .* )(then)` "then print" A
 ``rv = m[1]``<< ' ' <<
 endsnippet
-
-## if
-
-# snippet `if(l)? ` "if" A
-
-# endsnippet
 
 ## for
 
