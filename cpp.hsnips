@@ -78,7 +78,7 @@ snippet and "and" A
 endsnippet
 
 snippet `[ \(]not` "not" A
-``rv = m[0][0]``!
+``rv = `${m[0][0]}!```
 endsnippet
 
 ## input
@@ -88,7 +88,7 @@ cin >>
 endsnippet
 
 snippet `(>> .* )(then)` "then read" A
-``rv = m[1]``>>
+``rv = `${m[1]}>>```
 endsnippet
 
 ## output 
@@ -110,7 +110,7 @@ snippet `(<< .* )space` "space" A
 endsnippet
 
 snippet `(<< .* )then` "then print" A
-``rv = m[1]``<< ' ' <<
+``rv = `${m[1]}<< ' ' <<```
 endsnippet
 
 ## for
