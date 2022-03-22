@@ -1,10 +1,8 @@
 # todo
 
 ## if
-## `pp[a-zA-Z]` --> `++m[1]` ?
-## `x a y` --> `x & y`
-## `x o y` --> `x | y`
-## `x x y` --> `x ^ y`
+## `pp[a-zA-Z]` --> `++${m[1]}` ?
+## `[a-zA-Z]  [a-zA-Z0-9]` --> `${m[1]}[${m[2]}$1]$0` ?
 
 # test
 
@@ -14,6 +12,18 @@ endsnippet
 
 snippet `([a-zA-Z0-9\]\)]) m ([a-zA-Z0-9\(])` "minus" A
 ``rv = `${m[1]} - ${m[2]}```
+endsnippet
+
+snippet `([a-zA-Z0-9\]\)]) a ([a-zA-Z0-9\(])` "and" A
+``rv = `${m[1]} & ${m[2]}```
+endsnippet
+
+snippet `([a-zA-Z0-9\]\)]) o ([a-zA-Z0-9\(])` "or" A
+``rv = `${m[1]} | ${m[2]}```
+endsnippet
+
+snippet `([a-zA-Z0-9\]\)]) x ([a-zA-Z0-9\(])` "xor" A
+``rv = `${m[1]} ^ ${m[2]}```
 endsnippet
 
 # quality of life
