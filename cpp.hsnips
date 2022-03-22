@@ -1,8 +1,16 @@
 # todo
 
-# `[a-zA-Z] p [0-9]` --> `m[1] + m[2]` but be careful when its variable declaration
-# `[a-zA-Z] m [0-9]` --> `m[1] - m[2]` but be careful when its variable declaration
 # `pp[a-zA-Z]` --> `++m[1]` ?
+
+# test
+
+snippet `([a-zA-Z0-9]) p ([a-zA-Z0-9])` "plus" A
+``rv = `${m[1]} + ${m[2]}```
+endsnippet
+
+snippet `([a-zA-Z0-9]) m ([a-zA-Z0-9])` "minus" A
+``rv = `${m[1]} - ${m[2]}```
+endsnippet
 
 # quality of life
 
