@@ -1,13 +1,23 @@
+# todo
+
+# `[a-zA-Z] p [0-9]` --> `m[1] + m[2]` but be careful when its variable declaration
+# `[a-zA-Z] m [0-9]` --> `m[1] - m[2]` but be careful when its variable declaration
+# `pp[a-zA-Z]` --> `++m[1]` ?
+
 # quality of life
 
 ## operators
 
-snippet mminus "minus minus" iA
---
+snippet xor "xor" iA
+^
 endsnippet
 
 snippet pplus "plus plus" iA
 ++
+endsnippet
+
+snippet mminus "minus minus" iA
+--
 endsnippet
 
 snippet neq "not equal to" A
@@ -20,6 +30,18 @@ endsnippet
 
 snippet geq "greater than or equal to" A
 >=
+endsnippet
+
+snippet peq "plus equals" A
++=
+endsnippet
+
+snippet meq "minus equals" A
++=
+endsnippet
+
+snippet eq "equal to" iA
+==
 endsnippet
 
 snippet or "or" A
@@ -75,6 +97,9 @@ let start = 0;
 let check = '<';
 let end = 0;
 let increment = '++';
+if (varname === 'v') {  // todo: fix, doesnt work
+  varname = snip.tabstop(++stop);
+}
 if (decreasing || set) {
   start = snip.tabstop(++stop);
 }
@@ -110,6 +135,7 @@ snippet tmpl "template"
 #define vc vector
 using namespace std;
 using ll = long long;
+using ld = long double;
 using vi = vc<int>;
 using vll = vc<ll>;
 using pii = pair<int, int>;
