@@ -1,9 +1,16 @@
 # todo
 
 ## if
-## `pp[a-zA-Z]` --> `++${m[1]}` ?
 
 # test
+
+snippet `(^| )pp([a-zA-Z])` "plus plus" A
+``rv = `${m[1]}++${m[2]}```
+endsnippet
+
+snippet `(^| )mm([a-zA-Z])` "minus minus" A
+``rv = `${m[1]}--${m[2]}```
+endsnippet
 
 snippet `([a-zA-Z\]])  ([a-zA-Z0-9])` "index" A
 ``rv = `${m[1]}[${m[2]}${snip.tabstop(1)}]${snip.tabstop(0)}```
