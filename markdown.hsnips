@@ -2,22 +2,22 @@ snippet imm "math" A
 $$1$
 endsnippet
 
-snippet icb "inline code" iA
+snippet icb "inline code" A
 `$1`$0
 endsnippet
 
-snippet bf "bold" iA
+snippet bf "bold" A
 **$1**$0
 endsnippet
 
-snippet itl "italics" iA
+snippet itl "italics" A
 *$1*$0
 endsnippet
 
-snippet lnk "link" iA
+snippet lnk "link" A
 [$1]($2)$0
 endsnippet
 
-snippet emdash "em dash" iA
+snippet emdash "em dash" A
 &mdash;
 endsnippet
