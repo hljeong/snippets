@@ -280,6 +280,21 @@ snippet dfes "define" A
 :=
 endsnippet
 
+# layouts
+
+snippet `\\2col ` "2 columns" A
+\begin{minipage}{0.5 \textwidth}
+  \begin{center}
+    $1
+  \end{center}
+\end{minipage}%
+\begin{minipage}{0.5 \textwidth}
+  \begin{center}
+    $0
+  \end{center}
+\end{minipage}
+endsnippet
+
 # finite state machines
 
 snippet \fsm "enable fsm snippets" iA
