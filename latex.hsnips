@@ -1,3 +1,31 @@
+snippet `bf ` "bold text" A
+\textbf{$1}$0
+endsnippet
+
+snippet `itl ` "italics text" A
+\textit{$1}$0
+endsnippet
+
+snippet `(^|[^a-zA-Z])\\nullset ` "empty set" A
+``rv = `${m[1]}\\varnothing```
+endsnippet
+
+snippet `(^|[^a-zA-Z])\\abs ` "absolute value" A
+``rv = `${m[1]}\\left | ${snip.tabstop(1)} \\right |${snip.tabstop(0)}```
+endsnippet
+
+snippet `(^|[^a-zA-Z])\\setof ` "set of" A
+``rv = `${m[1]}\\left \\\{ ${snip.tabstop(1)} \\right \\\\\}${snip.tabstop(0)}```
+endsnippet
+
+snippet `(^|[^a-zA-Z])\\set ` "set generator" A
+``rv = `${m[1]}\\left \\\{ ${snip.tabstop(1)} : ${snip.tabstop(2)} \\right \\\\\}${snip.tabstop(0)}```
+endsnippet
+
+snippet `(^|[^a-zA-Z])\\vb ` "inline verbatim" A
+``rv = `${m[1]}\\verb~${snip.tabstop(1)}~${snip.tabstop(0)}```
+endsnippet
+
 snippet imm "inline math" iA
 $$1$
 endsnippet
@@ -6,6 +34,12 @@ snippet bm "block math" b
 \[
   $0
 \]
+endsnippet
+
+snippet bn "numbered block math" b
+\begin{equation}
+  $0
+\end{equation}
 endsnippet
 
 snippet bmm "multiline block math" b
@@ -144,27 +178,31 @@ snippet dfes "define" A
 :=
 endsnippet
 
-snippet `(^|[ \({\$_\^])alpha` "alpha" A
+snippet `(^|[ \({\$_\^])alpha ` "alpha" A
 ``rv = m[1]``\alpha
 endsnippet
 
-snippet `([ \({]\$?)beta` "beta" A
+snippet `([ \({]\$?)beta ` "beta" A
 ``rv = m[1]``\beta
 endsnippet
 
-snippet `([ \({]\$?)gamma` "gamma" A
+snippet `([ \({]\$?)gamma ` "gamma" A
 ``rv = m[1]``\gamma
 endsnippet
 
-snippet `([ \({]\$?)delta` "delta" A
+snippet `([ \({]\$?)delta ` "delta" A
 ``rv = m[1]``\delta
 endsnippet
 
-snippet `([ \({]\$?)eps` "epsilon" A
+snippet `([ \({]\$?)eps ` "epsilon" A
 ``rv = m[1]``\epsilon
 endsnippet
 
-snippet `([ \({]\$?)lambda` "lambda" A
+snippet `([ \({]\$?)veps ` "epsilon" A
+``rv = m[1]``\varepsilon
+endsnippet
+
+snippet `([ \({]\$?)lambda ` "lambda" A
 ``rv = m[1]``\lambda
 endsnippet
 
