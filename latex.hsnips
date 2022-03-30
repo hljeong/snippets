@@ -17,6 +17,10 @@ const math = (context) => {
 };
 
 const text = (context) => !math(context);
+
+let fsm_mode = false;
+
+const fsm = (context) => fsm_mode;
 endglobal
 
 # quality of life
@@ -188,7 +192,7 @@ snippet ddd "dot dot dot" iA
 \dots
 endsnippet
 
-snippet begin "begin/end block" b
+snippet begin "begin/end block" i
 \begin{$1}
   $0
 \end{$1}
@@ -274,6 +278,132 @@ endsnippet
 context math(context)
 snippet dfes "define" A
 :=
+endsnippet
+
+# finite state machines
+
+snippet \fsm "enable fsm snippets" iA
+``fsm_mode = true;``
+endsnippet
+
+snippet \nofsm "disable fsm snippets" iA
+``fsm_mode = false;``
+endsnippet
+
+context fsm(context)
+snippet fsm "draw fsm" bA
+\begin{tikzpicture}[> = stealth, node distance = 5em]
+  $1
+  \draw[->]
+  $0
+  ;
+\end{tikzpicture}
+endsnippet
+
+context fsm(context)
+snippet `n ` "declare node" A
+\node[$2state] (q$1) {\$q_$1\$};
+endsnippet
+
+context fsm(context)
+snippet `node\[in ` "initial state" A
+node[$0initial, initial text=, 
+endsnippet
+
+context fsm(context)
+snippet `node\[ac ` "accepting state" A
+node[$0accepting, 
+endsnippet
+
+context fsm(context)
+snippet `node\[([ablr])([lr]?) ` "node position" A
+``
+let position = '';
+if (m[1] === 'a') {
+  if (m[2] === '') {
+    position = 'above';
+  } else if (m[2] === 'l') {
+    position = 'above left';
+  } else if (m[2] === 'r') {
+    position = 'above right';
+  }
+} else if (m[1] === 'b') {
+  if (m[2] === '') {
+    position = 'below';
+  } else if (m[2] === 'l') {
+    position = 'below left';
+  } else if (m[2] === 'r') {
+    position = 'below right';
+  }
+} else if (m[1] === 'l') {
+  position = 'left';
+} else if (m[1] === 'r') {
+  position = 'right';
+}
+if (position === '') {
+  rv = 'node[';
+} else {
+  rv = `node[${snip.tabstop(0)}${position} of = q${snip.tabstop(1)}, `;
+}
+``
+endsnippet
+
+context fsm(context)
+snippet `e ` "declare edge" A
+(q$1) edge[$0] node{\verb~$3~} (q$2)
+endsnippet
+
+context fsm(context)
+snippet `verb~(.), ` "parallel transitions" A
+``rv = `verb~${m[1]}~,\\verb~${snip.tabstop(0)}```
+endsnippet
+
+context fsm(context)
+snippet `edge\[([ablr])([ablr]?) ` "edge shape & label position" A
+``
+let position = '';
+if (m[1] === 'a') {
+  if (m[2] === '') {
+    position = 'above';
+  } else if (m[2] === 'l') {
+    position = 'above left';
+  } else if (m[2] === 'r') {
+    position = 'above right';
+  }
+} else if (m[1] === 'b') {
+  if (m[2] === '') {
+    position = 'below';
+  } else if (m[2] === 'l') {
+    position = 'below left';
+  } else if (m[2] === 'r') {
+    position = 'below right';
+  }
+} else if (m[1] === 'l') {
+  if (m.length < 2) {
+    position = 'left';
+  } else if (m[2] === 'a') {
+    position = 'loop above';
+  } else if (m[2] === 'b') {
+    position = 'loop below';
+  } else if (m[2] === 'l') {
+    position = 'loop left';
+  } else if (m[2] === 'r') {
+    position = 'loop right';
+  }
+} else if (m[1] === 'r') {
+  position = 'right';
+}
+if (position === '') {
+  rv = 'edge[';
+} else {
+  rv = `edge[${snip.tabstop(0)}${position}`;
+}
+``
+endsnippet
+
+context fsm(context)
+snippet `edge\[bd ` "edge bend" A
+edge[$0bend right, 
 endsnippet
 
 # templates
