@@ -6,6 +6,26 @@ snippet `itl ` "italics text" A
 \textit{$1}$0
 endsnippet
 
+snippet `(^|[^a-zA-Z])\\R` "reals" A
+``rv = `${m[1]}\\mathbb R```
+endsnippet
+
+snippet `(^|[^a-zA-Z])\\Q` "rationals" A
+``rv = `${m[1]}\\mathbb Q```
+endsnippet
+
+snippet `(^|[^a-zA-Z])\\N` "naturals" A
+``rv = `${m[1]}\\mathbb N```
+endsnippet
+
+snippet `(^|[^a-zA-Z])\\A ` "for all" A
+``rv = `${m[1]}\\forall \\, ```
+endsnippet
+
+snippet `(^|[^a-zA-Z])\\E ` "there exists" A
+``rv = `${m[1]}\\exists \\, ```
+endsnippet
+
 snippet `(^|[^a-zA-Z])\\nullset ` "empty set" A
 ``rv = `${m[1]}\\varnothing```
 endsnippet
