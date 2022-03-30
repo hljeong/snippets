@@ -317,12 +317,12 @@ endsnippet
 
 context fsm(context)
 snippet ` n ` "declare node" A
- \node[$2state] (q$1) {\$q_$1\$};
+ \node[$2state, minimum size = 2em] (q$1) {\$q_$1\$};
 endsnippet
 
 context fsm(context)
 snippet ` an ` "declare anonymous node" A
- \node[$2state] (q$1) {};
+ \node[$2state, minimum size = 2em] (q$1) {};
 endsnippet
 
 context fsm(context)
