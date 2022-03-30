@@ -282,6 +282,12 @@ endsnippet
 
 # layouts
 
+snippet `\\centered ` "centered" A
+\begin{center}
+  $1
+\end{center}$0
+endsnippet
+
 snippet `\\2col ` "2 columns" A
 \begin{minipage}{0.5 \textwidth}
   \begin{center}
@@ -290,9 +296,9 @@ snippet `\\2col ` "2 columns" A
 \end{minipage}%
 \begin{minipage}{0.5 \textwidth}
   \begin{center}
-    $0
+    $2
   \end{center}
-\end{minipage}
+\end{minipage}$0
 endsnippet
 
 # finite state machines
@@ -399,7 +405,7 @@ if (m[1] === 'a') {
     position = 'below right';
   }
 } else if (m[1] === 'l') {
-  if (m.length < 2) {
+  if (m[2] === '') {
     position = 'left';
   } else if (m[2] === 'a') {
     position = 'loop above';
