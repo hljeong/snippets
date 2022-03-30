@@ -301,8 +301,13 @@ snippet fsm "draw fsm" bA
 endsnippet
 
 context fsm(context)
-snippet `n ` "declare node" A
-\node[$2state] (q$1) {\$q_$1\$};
+snippet ` n ` "declare node" A
+ \node[$2state] (q$1) {\$q_$1\$};
+endsnippet
+
+context fsm(context)
+snippet ` an ` "declare anonymous node" A
+ \node[$2state] (q$1) {};
 endsnippet
 
 context fsm(context)
@@ -349,8 +354,8 @@ if (position === '') {
 endsnippet
 
 context fsm(context)
-snippet `e ` "declare edge" A
-(q$1) edge[$0] node{\verb~$3~} (q$2)
+snippet ` e ` "declare edge" A
+ (q$1) edge[$0] node{\verb~$3~} (q$2)
 endsnippet
 
 context fsm(context)
