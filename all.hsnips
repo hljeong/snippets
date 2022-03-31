@@ -6,27 +6,15 @@ snippet ark "angle brackets" i
 <$1>$0
 endsnippet
 
-snippet prs "parentheses" A
+snippet prs "parentheses" iA
 ($1)$0
 endsnippet
 
-snippet prs "parentheses" i
-($1)$0
-endsnippet
-
-snippet brk "brackets" A
+snippet brk "brackets" iA
 [$1]$0
 endsnippet
 
-snippet brk "brackets" i
-[$1]$0
-endsnippet
-
-snippet brs "braces" A
-{$1}$0
-endsnippet
-
-snippet brs "braces" i
+snippet brs "braces" iA
 {$1}$0
 endsnippet
 
