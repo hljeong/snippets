@@ -38,8 +38,18 @@ snippet `([^a-zA-Z])\\xa` "alpha" A
 endsnippet
 
 context math(context)
+snippet `([^a-zA-Z])\\xA` "Alpha" A
+``rv = `${m[1]}\\Alpha```
+endsnippet
+
+context math(context)
 snippet `([^a-zA-Z])\\xb` "beta" A
 ``rv = `${m[1]}\\beta```
+endsnippet
+
+context math(context)
+snippet `([^a-zA-Z])\\xB` "Beta" A
+``rv = `${m[1]}\\Beta```
 endsnippet
 
 context math(context)
@@ -48,13 +58,28 @@ snippet `([^a-zA-Z])\\xg` "gamma" A
 endsnippet
 
 context math(context)
+snippet `([^a-zA-Z])\\xG` "Gamma" A
+``rv = `${m[1]}\\Gamma```
+endsnippet
+
+context math(context)
 snippet `([^a-zA-Z])\\xd` "delta" A
 ``rv = `${m[1]}\\delta```
 endsnippet
 
 context math(context)
+snippet `([^a-zA-Z])\\xD` "Delta" A
+``rv = `${m[1]}\\Delta```
+endsnippet
+
+context math(context)
 snippet `([^a-zA-Z])\\xe` "epsilon" A
 ``rv = `${m[1]}\\epsilon```
+endsnippet
+
+context math(context)
+snippet `([^a-zA-Z])\\xE` "Epsilon" A
+``rv = `${m[1]}\\Epsilon```
 endsnippet
 
 context math(context)
@@ -68,8 +93,18 @@ snippet `([^a-zA-Z])\\xl` "lambda" A
 endsnippet
 
 context math(context)
+snippet `([^a-zA-Z])\\xL` "Lambda" A
+``rv = `${m[1]}\\Lambda```
+endsnippet
+
+context math(context)
 snippet `([^a-zA-Z])\\xm` "mu" A
 ``rv = `${m[1]}\\mu```
+endsnippet
+
+context math(context)
+snippet `([^a-zA-Z])\\xM` "Mu" A
+``rv = `${m[1]}\\Mu```
 endsnippet
 
 context math(context)
@@ -78,8 +113,18 @@ snippet `([^a-zA-Z])\\xp` "pi" A
 endsnippet
 
 context math(context)
+snippet `([^a-zA-Z])\\xP` "Pi" A
+``rv = `${m[1]}\\Pi```
+endsnippet
+
+context math(context)
 snippet `([^a-zA-Z])\\xt` "tau" A
 ``rv = `${m[1]}\\tau```
+endsnippet
+
+context math(context)
+snippet `([^a-zA-Z])\\xT` "Tau" A
+``rv = `${m[1]}\\Tau```
 endsnippet
 
 context math(context)
@@ -88,8 +133,18 @@ snippet `([^a-zA-Z])\\xf` "phi" A
 endsnippet
 
 context math(context)
+snippet `([^a-zA-Z])\\xF` "Phi" A
+``rv = `${m[1]}\\Phi```
+endsnippet
+
+context math(context)
 snippet `([^a-zA-Z])\\xr` "rho" A
 ``rv = `${m[1]}\\rho```
+endsnippet
+
+context math(context)
+snippet `([^a-zA-Z])\\xR` "Rho" A
+``rv = `${m[1]}\\Rho```
 endsnippet
 
 context math(context)
@@ -98,8 +153,18 @@ snippet `([^a-zA-Z])\\xs` "sigma" A
 endsnippet
 
 context math(context)
+snippet `([^a-zA-Z])\\xS` "Sigma" A
+``rv = `${m[1]}\\Sigma```
+endsnippet
+
+context math(context)
 snippet `([^a-zA-Z])\\xh` "theta" A
 ``rv = `${m[1]}\\theta```
+endsnippet
+
+context math(context)
+snippet `([^a-zA-Z])\\xH` "Theta" A
+``rv = `${m[1]}\\Theta```
 endsnippet
 
 context math(context)
@@ -108,8 +173,19 @@ snippet `([^a-zA-Z])\\xo` "omega" A
 endsnippet
 
 context math(context)
+snippet `([^a-zA-Z])\\xO` "Omega" A
+``rv = `${m[1]}\\Omega```
+endsnippet
+
+context math(context)
 snippet `([^a-zA-Z])\\R` "reals" A
 ``rv = `${m[1]}\\mathbb R```
+endsnippet
+
+#### todo: find a fix
+context math(context)
+snippet `([^a-zA-Z])\\mathbb Rightarrow` "rightarrow escape" A
+``rv = `${m[1]}\\Rightarrow```
 endsnippet
 
 context math(context)
@@ -139,15 +215,15 @@ endsnippet
 
 ### with tabstops
 
-snippet `([^a-zA-Z])\\it ` "italics text" A
+snippet `(^|[^a-zA-Z])\\it ` "italics text" A
 ``rv = `${m[1]}\\textit\{${snip.tabstop(1)}\}${snip.tabstop(0)}```
 endsnippet
 
-snippet `([^a-zA-Z])\\ve ` "inline verbatim" A
+snippet `(^|[^a-zA-Z])\\ve ` "inline verbatim" A
 ``rv = `${m[1]}\\verb~${snip.tabstop(1)}~${snip.tabstop(0)}```
 endsnippet
 
-snippet `([^a-zA-Z])\\bf ` "bold font" A
+snippet `(^|[^a-zA-Z])\\bf ` "bold font" A
 ``rv = `${m[1]}\{\\boldmath \\bfseries ${snip.tabstop(1)}\}${snip.tabstop(0)}```
 endsnippet
 
@@ -267,19 +343,19 @@ endsnippet
 
 #### experimental
 context math(context)
-snippet `(.) p ([a-zA-Z0-9])` "plus" iA
+snippet `(.) pl ([a-zA-Z0-9])` "plus" iA
 ``rv = `${m[1]} + ${m[2]}```
 endsnippet
 
 #### experimental
 context math(context)
-snippet `(.) m ([a-zA-Z0-9])` "minus" iA
+snippet `(.) mn ([a-zA-Z0-9])` "minus" iA
 ``rv = `${m[1]} - ${m[2]}```
 endsnippet
 
 #### experimental
 context math(context)
-snippet `(.) t ([a-zA-Z0-9])` "times" iA
+snippet `(.) tm ([a-zA-Z0-9])` "times" iA
 ``rv = `${m[1]} \\cdot ${m[2]}```
 endsnippet
 
@@ -346,7 +422,7 @@ endsnippet
 
 context fsm(context)
 snippet fsm "draw fsm" bA
-\begin{tikzpicture}[> = stealth, node distance = 5em]
+\begin{tikzpicture}[> = stealth, node distance = 3em]
   $1
   \draw[->]
   $0
@@ -356,12 +432,12 @@ endsnippet
 
 context fsm(context)
 snippet ` n ` "declare node" A
- \node[$2state, minimum size = 2em] (q$1) {\$q_$1\$};
+ \node[$3state, minimum size = 2em] ($1) {\$$2\$};
 endsnippet
 
 context fsm(context)
 snippet ` an ` "declare anonymous node" A
- \node[$2state, minimum size = 2em] (q$1) {};
+ \node[$2state, minimum size = 2em] ($1) {};
 endsnippet
 
 context fsm(context)
@@ -402,14 +478,14 @@ if (m[1] === 'a') {
 if (position === '') {
   rv = 'node[';
 } else {
-  rv = `node[${snip.tabstop(0)}${position} of = q${snip.tabstop(1)}, `;
+  rv = `node[${snip.tabstop(0)}${position} = of ${snip.tabstop(1)}, `;
 }
 ``
 endsnippet
 
 context fsm(context)
 snippet ` e ` "declare edge" A
- (q$1) edge[$0] node{\verb~$3~} (q$2)
+ ($1) edge[$0] node{\verb~$3~} ($2)
 endsnippet
 
 context fsm(context)
@@ -607,14 +683,14 @@ endsnippet
 
 # personal snippets
 
-snippet [me "me" iA
-[Lucas Jeong
+snippet {me "me" i
+{Lucas Jeong
 endsnippet
 
-snippet [m131bh "math131bh" iA
-[MATH 131BH (Real Analysis)
+snippet {m131bh "math131bh" i
+{MATH 131BH (Real Analysis)
 endsnippet
 
-snippet [cs181 "cs181" iA
-[COM SCI 181
+snippet {cs181 "cs181" i
+{COM SCI 181
 endsnippet
