@@ -1,5 +1,7 @@
 # todo
 
+## test text mode inside inline math
+## xhat, xbar, xcal
 ## autowrap math mode macros in text mode
 ## cycle through similar macros
 
@@ -31,77 +33,77 @@ endglobal
 ### without tabstops
 
 context math(context)
-snippet `([^a-zA-Z])\xa` "alpha" A
+snippet `([^a-zA-Z])\\xa` "alpha" A
 ``rv = `${m[1]}\\alpha```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\xb` "beta" A
+snippet `([^a-zA-Z])\\xb` "beta" A
 ``rv = `${m[1]}\\beta```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\xg` "gamma" A
+snippet `([^a-zA-Z])\\xg` "gamma" A
 ``rv = `${m[1]}\\gamma```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\xd` "delta" A
+snippet `([^a-zA-Z])\\xd` "delta" A
 ``rv = `${m[1]}\\delta```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\xe` "epsilon" A
+snippet `([^a-zA-Z])\\xe` "epsilon" A
 ``rv = `${m[1]}\\epsilon```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\xve` "epsilon" A
+snippet `([^a-zA-Z])\\xve` "epsilon" A
 ``rv = `${m[1]}\\varepsilon```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\xl` "lambda" A
+snippet `([^a-zA-Z])\\xl` "lambda" A
 ``rv = `${m[1]}\\lambda```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\xm` "mu" A
+snippet `([^a-zA-Z])\\xm` "mu" A
 ``rv = `${m[1]}\\mu```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\xp` "pi" A
+snippet `([^a-zA-Z])\\xp` "pi" A
 ``rv = `${m[1]}\\pi```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\xt` "tau" A
+snippet `([^a-zA-Z])\\xt` "tau" A
 ``rv = `${m[1]}\\tau```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\xf` "phi" A
+snippet `([^a-zA-Z])\\xf` "phi" A
 ``rv = `${m[1]}\\phi```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\xr` "rho" A
+snippet `([^a-zA-Z])\\xr` "rho" A
 ``rv = `${m[1]}\\rho```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\xs` "sigma" A
+snippet `([^a-zA-Z])\\xs` "sigma" A
 ``rv = `${m[1]}\\sigma```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\xh` "theta" A
+snippet `([^a-zA-Z])\\xh` "theta" A
 ``rv = `${m[1]}\\theta```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\xo` "omega" A
+snippet `([^a-zA-Z])\\xo` "omega" A
 ``rv = `${m[1]}\\omega```
 endsnippet
 
@@ -156,7 +158,7 @@ endsnippet
 
 context math(context)
 snippet `([^a-zA-Z])\\paren ` "parentheses" A
-``rv = `${m[1]}\\left \\\( ${snip.tabstop(1)} \\right \\\\\)${snip.tabstop(0)}```
+``rv = `${m[1]}\\left \( ${snip.tabstop(1)} \\right \)${snip.tabstop(0)}```
 endsnippet
 
 context math(context)
@@ -265,19 +267,19 @@ endsnippet
 
 #### experimental
 context math(context)
-snippet `(.) p (.)` "plus" iA
+snippet `(.) p ([a-zA-Z0-9])` "plus" iA
 ``rv = `${m[1]} + ${m[2]}```
 endsnippet
 
 #### experimental
 context math(context)
-snippet `(.) m (.)` "minus" iA
+snippet `(.) m ([a-zA-Z0-9])` "minus" iA
 ``rv = `${m[1]} - ${m[2]}```
 endsnippet
 
 #### experimental
 context math(context)
-snippet `(.) t (.)` "times" iA
+snippet `(.) t ([a-zA-Z0-9])` "times" iA
 ``rv = `${m[1]} \\cdot ${m[2]}```
 endsnippet
 
@@ -605,14 +607,14 @@ endsnippet
 
 # personal snippets
 
-snippet `([^a-zA-Z])me` "me" A
-``rv = `${m[1]}Lucas Jeong```
+snippet [me "me" iA
+[Lucas Jeong
 endsnippet
 
-snippet `([^a-zA-Z])m131bh` "math131bh" A
-``rv = `${m[1]}MATH 131BH (Real Analysis)```
+snippet [m131bh "math131bh" iA
+[MATH 131BH (Real Analysis)
 endsnippet
 
-snippet `([^a-zA-Z])cs181` "cs181" A
-``rv = `${m[1]}COM SCI 181```
+snippet [cs181 "cs181" iA
+[COM SCI 181
 endsnippet
