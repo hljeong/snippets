@@ -4,94 +4,82 @@
 
 # test
 
-snippet `(^| )pp([a-zA-Z])` "plus plus" A
-``rv = `${m[1]}++${m[2]}```
+snippet ` pl ` "plus" A
+ + 
 endsnippet
 
-snippet `(^| )mm([a-zA-Z])` "minus minus" A
-``rv = `${m[1]}--${m[2]}```
+snippet ` mn ` "minus" A
+ - 
 endsnippet
 
-snippet `([a-zA-Z\]])  ([a-zA-Z0-9])` "index" A
-``rv = `${m[1]}[${m[2]}${snip.tabstop(1)}]${snip.tabstop(0)}```
+snippet ` ba ` "bitwise and" A
+ & 
 endsnippet
 
-snippet `([a-zA-Z0-9\]\)"]) p ([a-zA-Z0-9\("])` "plus" A
-``rv = `${m[1]} + ${m[2]}```
+snippet ` bo ` "bitwise or" A
+ | 
 endsnippet
 
-snippet `([a-zA-Z0-9\]\)]) m ([a-zA-Z0-9\(])` "minus" A
-``rv = `${m[1]} - ${m[2]}```
-endsnippet
-
-snippet `([a-zA-Z0-9\]\)]) a ([a-zA-Z0-9\(])` "and" A
-``rv = `${m[1]} & ${m[2]}```
-endsnippet
-
-snippet `([a-zA-Z0-9\]\)]) o ([a-zA-Z0-9\(])` "or" A
-``rv = `${m[1]} | ${m[2]}```
-endsnippet
-
-snippet `([a-zA-Z0-9\]\)]) x ([a-zA-Z0-9\(])` "xor" A
-``rv = `${m[1]} ^ ${m[2]}```
+snippet ` xr ` "xor" A
+ ^ 
 endsnippet
 
 # quality of life
 
 ## operators
 
-snippet xor "xor" iA
-^
+snippet ` xor ` "xor" A
+ ^ 
 endsnippet
 
-snippet pplus "plus plus" iA
+snippet `pp ` "plus plus" A
 ++
 endsnippet
 
-snippet mminus "minus minus" iA
+snippet `mm ` "minus minus" A
 --
 endsnippet
 
-snippet neq "not equal to" A
-!=
+snippet ` neq ` "not equal to" A
+ != 
 endsnippet
 
-snippet leq "less than or equal to" A
-<=
+snippet ` leq ` "less than or equal to" A
+ <= 
 endsnippet
 
-snippet geq "greater than or equal to" A
->=
+snippet ` geq ` "greater than or equal to" A
+ >= 
 endsnippet
 
-snippet peq "plus equals" A
-+=
+snippet ` peq ` "plus equals" A
+ += 
 endsnippet
 
-snippet meq "minus equals" A
--=
+snippet ` meq ` "minus equals" A
+ -= 
 endsnippet
 
-snippet eq "equal to" iA
-==
+snippet ` eq ` "equal to" iA
+ == 
 endsnippet
 
-snippet or "or" A
-||
+snippet ` or ` "or" A
+ || 
 endsnippet
 
-snippet and "and" A
-&&
+snippet ` and ` "and" A
+ && 
 endsnippet
 
-snippet `[ \(]not` "not" A
+snippet `[ \(]not ` "not" A
 ``rv = `${m[0][0]}!```
 endsnippet
 
 ## input
 
-snippet rin "read" A
-cin >>
+snippet `cin ` "read" A
+cin >> 
 endsnippet
 
 snippet `(>> .* )(then)` "then read" A
