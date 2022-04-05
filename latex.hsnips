@@ -19,7 +19,8 @@ const math = (context) => {
   return false;
 };
 
-const text = (context) => !math(context);
+// const text = (context) => !math(context);
+const text = (context) => true;
 
 let fsm_mode = false;
 
@@ -257,6 +258,11 @@ snippet `([^a-zA-Z])\\f ` "fraction" A
 ``rv = `${m[1]}\\frac\{${snip.tabstop(1)}\}\{${snip.tabstop(2)}\}${snip.tabstop(0)}```
 endsnippet
 
+context math(context)
+snippet `\\dtof([^/]*)/([^/]*)\\dtof ` "divide to fraction" A
+``rv = `\\frac\{${m[1].trim()}\}\{${m[2].trim()}\}```
+endsnippet
+
 ## efficiency
 
 snippet lkj "slash" iA
@@ -311,14 +317,14 @@ endsnippet
 
 #### experimental
 context math(context)
-snippet `([a-zA-Z])([0-9]+)([^a-zA-Z0-9])` "autosubscript" A
-``rv = `${m[1]}_\{${m[2]}\}${m[3]}```
+snippet `([a-zA-Z])([0-9])` "autosubscript" A
+``rv = `${m[1]}_${m[2]}```
 endsnippet
 
 #### experimental
 context math(context)
-snippet `([a-zA-Z])([0-9]+)` "autosubscript"
-``rv = `${m[1]}_\{${m[2]}${snip.tabstop(1)}\}${snip.tabstop(2)}```
+snippet `([a-zA-Z])_([0-9][0-9])` "extended autosubscript" A
+``rv = `${m[1]}_\{${m[2]}${snip.tabstop(1)}\}${snip.tabstop(0)}```
 endsnippet
 
 context math(context)
@@ -408,6 +414,34 @@ snippet `\\2col ` "2 columns" A
     $2
   \end{center}
 \end{minipage}$0
+endsnippet
+
+snippet `\\2colfit ` "2 columns avoid overfull hbox" A
+\begin{minipage}{0.45 \textwidth}
+  \begin{center}
+    $1
+  \end{center}
+\end{minipage}%
+\hspace*{\fill}%
+\begin{minipage}{0.45 \textwidth}
+  \begin{center}
+    $2
+  \end{center}
+\end{minipage}$0
+endsnippet
+
+# graphs
+
+snippet `\\graph ` "y = f(x) graph" A
+\begin{tikzpicture}[scale = 0.75]
+  \begin{axis}[
+    xmin = $1, xmax = $2, 
+    ymin = $3, ymax = $4, 
+    axis x line = center, 
+    axis y line = center]
+    \addplot[no marks, domain = $5 : $6]{$7};
+  \end{axis}
+\end{tikzpicture}$0
 endsnippet
 
 # finite state machines
@@ -693,4 +727,8 @@ endsnippet
 
 snippet {cs181 "cs181" i
 {COM SCI 181
+endsnippet
+
+snippet {ece102 "ece102" i
+{ECE 102 (Systems and Signals)
 endsnippet
