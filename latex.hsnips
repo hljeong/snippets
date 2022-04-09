@@ -8,16 +8,17 @@
 # globals
 
 global
-const math = (context) => {
-  for (scope of context.scopes) {
-    if (scope.startsWith('meta.math')) {
-      return true;
-    } else if (scope.startsWith('meta.text')) {
-      return false;
-    }
-  }
-  return false;
-};
+// const math = (context) => {
+//   for (scope of context.scopes) {
+//     if (scope.startsWith('meta.math')) {
+//       return true;
+//     } else if (scope.startsWith('meta.text')) {
+//       return false;
+//     }
+//   }
+//   return false;
+// };
+const math = (context) => true;
 
 // const text = (context) => !math(context);
 const text = (context) => true;
@@ -192,6 +193,11 @@ endsnippet
 context math(context)
 snippet `([^a-zA-Z])\\Q` "rationals" A
 ``rv = `${m[1]}\\mathbb Q```
+endsnippet
+
+context math(context)
+snippet `([^a-zA-Z])\\Z` "integers" A
+``rv = `${m[1]}\\mathbb Z```
 endsnippet
 
 context math(context)
@@ -404,19 +410,6 @@ snippet `\\centered ` "centered" A
 endsnippet
 
 snippet `\\2col ` "2 columns" A
-\begin{minipage}{0.5 \textwidth}
-  \begin{center}
-    $1
-  \end{center}
-\end{minipage}%
-\begin{minipage}{0.5 \textwidth}
-  \begin{center}
-    $2
-  \end{center}
-\end{minipage}$0
-endsnippet
-
-snippet `\\2colfit ` "2 columns avoid overfull hbox" A
 \begin{minipage}{0.45 \textwidth}
   \begin{center}
     $1
@@ -583,6 +576,7 @@ snippet homework "homework template" b
 \class{$1}
 \num{$2}
 \name{$3}
+\solutionColor{red}
 
 \begin{document}
 
