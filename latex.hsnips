@@ -25,7 +25,13 @@ const text = (context) => true;
 
 let fsm_mode = false;
 
+// todo: delete this
 const fsm = (context) => fsm_mode;
+
+let autosubscript_mode = true;
+
+// todo: delete this
+const autosubscript = (context) => autosubscript_mode;
 endglobal
 
 # quality of life
@@ -321,8 +327,16 @@ snippet `(^|[^a-zA-Z])im([a-zA-Z])([^a-zA-Z])` "single character inline math" A
 ``rv = `${m[1]}\$${m[2]}\$${m[3]}```
 endsnippet
 
+snippet `\\autosubs ` "autosubscript on" A
+``autosubscript_mode = true``
+endsnippet
+
+snippet `\\noautosubs ` "autosubscript off" A
+``autosubscript_mode = false``
+endsnippet
+
 #### experimental
-context math(context)
+context math(context) && autosubscript_mode
 snippet `([a-zA-Z])([0-9])` "autosubscript" A
 ``rv = `${m[1]}_${m[2]}```
 endsnippet
@@ -439,11 +453,11 @@ endsnippet
 
 # finite state machines
 
-snippet \fsm "enable fsm snippets" iA
+snippet `\\fsm ` "fsm on" iA
 ``fsm_mode = true;``
 endsnippet
 
-snippet \nofsm "disable fsm snippets" iA
+snippet `\\nofsm ` "fsm off" iA
 ``fsm_mode = false;``
 endsnippet
 
@@ -459,7 +473,7 @@ endsnippet
 
 context fsm(context)
 snippet ` n ` "declare node" A
- \node[$3state, minimum size = 2em] ($1) {\$$2\$};
+ \node[$3state, minimum size = 2em] ($1) {$2};
 endsnippet
 
 context fsm(context)
@@ -512,7 +526,7 @@ endsnippet
 
 context fsm(context)
 snippet ` e ` "declare edge" A
- ($1) edge[$0] node{\verb~$3~} ($2)
+ ($1) edge[$0] node{$3} ($2)
 endsnippet
 
 context fsm(context)
