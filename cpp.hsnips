@@ -3,6 +3,14 @@
 ## if
 
 # test
+#
+snippet ` lt ` "less than" A
+ < 
+endsnippet
+
+snippet ` gt ` "greater than" A
+ > 
+endsnippet
 
 snippet ` pl ` "plus" A
  + 
