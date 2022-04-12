@@ -1,8 +1,8 @@
 # todo
 
-## test text mode inside inline math
+## test math mode and text mode
 ## xhat, xbar, xcal
-## autowrap math mode macros in text mode
+## autowrap math mode macros in text mode?
 ## cycle through similar macros
 
 # globals
@@ -25,208 +25,198 @@ const text = (context) => true;
 
 let fsm_mode = false;
 
-// todo: delete this
-const fsm = (context) => fsm_mode;
-
 let autosubscript_mode = true;
 
-// todo: delete this
-const autosubscript = (context) => autosubscript_mode;
 endglobal
 
 # quality of life
 
 ## macros
 
-### without tabstops
-
 context math(context)
-snippet `([^a-zA-Z])\\xa` "alpha" A
+snippet `([^a-zA-Z])\\xa ` "alpha" A
 ``rv = `${m[1]}\\alpha```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xA` "Alpha" A
+snippet `([^a-zA-Z])\\xA ` "Alpha" A
 ``rv = `${m[1]}\\Alpha```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xb` "beta" A
+snippet `([^a-zA-Z])\\xb ` "beta" A
 ``rv = `${m[1]}\\beta```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xB` "Beta" A
+snippet `([^a-zA-Z])\\xB ` "Beta" A
 ``rv = `${m[1]}\\Beta```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xg` "gamma" A
+snippet `([^a-zA-Z])\\xg ` "gamma" A
 ``rv = `${m[1]}\\gamma```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xG` "Gamma" A
+snippet `([^a-zA-Z])\\xG ` "Gamma" A
 ``rv = `${m[1]}\\Gamma```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xd` "delta" A
+snippet `([^a-zA-Z])\\xd ` "delta" A
 ``rv = `${m[1]}\\delta```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xD` "Delta" A
+snippet `([^a-zA-Z])\\xD ` "Delta" A
 ``rv = `${m[1]}\\Delta```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xe` "epsilon" A
+snippet `([^a-zA-Z])\\xe ` "epsilon" A
 ``rv = `${m[1]}\\epsilon```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xE` "Epsilon" A
+snippet `([^a-zA-Z])\\xE ` "Epsilon" A
 ``rv = `${m[1]}\\Epsilon```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xve` "epsilon" A
+snippet `([^a-zA-Z])\\xve ` "epsilon" A
 ``rv = `${m[1]}\\varepsilon```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xl` "lambda" A
+snippet `([^a-zA-Z])\\xl ` "lambda" A
 ``rv = `${m[1]}\\lambda```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xL` "Lambda" A
+snippet `([^a-zA-Z])\\xL ` "Lambda" A
 ``rv = `${m[1]}\\Lambda```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xm` "mu" A
+snippet `([^a-zA-Z])\\xm ` "mu" A
 ``rv = `${m[1]}\\mu```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xM` "Mu" A
+snippet `([^a-zA-Z])\\xM ` "Mu" A
 ``rv = `${m[1]}\\Mu```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xp` "pi" A
+snippet `([^a-zA-Z])\\xp ` "pi" A
 ``rv = `${m[1]}\\pi```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xP` "Pi" A
+snippet `([^a-zA-Z])\\xP ` "Pi" A
 ``rv = `${m[1]}\\Pi```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xt` "tau" A
+snippet `([^a-zA-Z])\\xt ` "tau" A
 ``rv = `${m[1]}\\tau```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xT` "Tau" A
+snippet `([^a-zA-Z])\\xT ` "Tau" A
 ``rv = `${m[1]}\\Tau```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xf` "phi" A
+snippet `([^a-zA-Z])\\xf ` "phi" A
 ``rv = `${m[1]}\\phi```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xF` "Phi" A
+snippet `([^a-zA-Z])\\xF ` "Phi" A
 ``rv = `${m[1]}\\Phi```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xr` "rho" A
+snippet `([^a-zA-Z])\\xr ` "rho" A
 ``rv = `${m[1]}\\rho```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xR` "Rho" A
+snippet `([^a-zA-Z])\\xR ` "Rho" A
 ``rv = `${m[1]}\\Rho```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xs` "sigma" A
+snippet `([^a-zA-Z])\\xs ` "sigma" A
 ``rv = `${m[1]}\\sigma```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xS` "Sigma" A
+snippet `([^a-zA-Z])\\xS ` "Sigma" A
 ``rv = `${m[1]}\\Sigma```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xh` "theta" A
+snippet `([^a-zA-Z])\\xh ` "theta" A
 ``rv = `${m[1]}\\theta```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xH` "Theta" A
+snippet `([^a-zA-Z])\\xH ` "Theta" A
 ``rv = `${m[1]}\\Theta```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xo` "omega" A
+snippet `([^a-zA-Z])\\xo ` "omega" A
 ``rv = `${m[1]}\\omega```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xO` "Omega" A
+snippet `([^a-zA-Z])\\xO ` "Omega" A
 ``rv = `${m[1]}\\Omega```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\R` "reals" A
+snippet `([^a-zA-Z])\\R ` "reals" A
 ``rv = `${m[1]}\\mathbb R```
 endsnippet
 
-#### todo: find a fix
 context math(context)
-snippet `([^a-zA-Z])\\mathbb Rightarrow` "rightarrow escape" A
+snippet `([^a-zA-Z])\\then ` "then" A
 ``rv = `${m[1]}\\Rightarrow```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\Q` "rationals" A
+snippet `([^a-zA-Z])\\Q ` "rationals" A
 ``rv = `${m[1]}\\mathbb Q```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\Z` "integers" A
+snippet `([^a-zA-Z])\\Z ` "integers" A
 ``rv = `${m[1]}\\mathbb Z```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\N` "naturals" A
+snippet `([^a-zA-Z])\\N ` "naturals" A
 ``rv = `${m[1]}\\mathbb N```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\A` "for all" A
+snippet `([^a-zA-Z])\\A ` "for all" A
 ``rv = `${m[1]}\\forall \\,```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\E` "there exists" A
+snippet `([^a-zA-Z])\\E ` "there exists" A
 ``rv = `${m[1]}\\exists \\,```
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\nullset` "empty set" A
+snippet `([^a-zA-Z])\\nullset ` "empty set" A
 ``rv = `${m[1]}\\varnothing```
 endsnippet
-
-### with tabstops
 
 snippet `(^|[^a-zA-Z])\\it ` "italics text" A
 ``rv = `${m[1]}\\textit\{${snip.tabstop(1)}\}${snip.tabstop(0)}```
@@ -321,7 +311,6 @@ snippet bmm "multiline block math" b
 \end{align*}
 endsnippet
 
-#### experimental
 context text(context)
 snippet `(^|[^a-zA-Z])im([a-zA-Z])([^a-zA-Z])` "single character inline math" A
 ``rv = `${m[1]}\$${m[2]}\$${m[3]}```
@@ -335,13 +324,11 @@ snippet `\\noautosubs ` "autosubscript off" A
 ``autosubscript_mode = false``
 endsnippet
 
-#### experimental
 context math(context) && autosubscript_mode
 snippet `([a-zA-Z])([0-9])` "autosubscript" A
 ``rv = `${m[1]}_${m[2]}```
 endsnippet
 
-#### experimental
 context math(context)
 snippet `([a-zA-Z])_([0-9][0-9])` "extended autosubscript" A
 ``rv = `${m[1]}_\{${m[2]}${snip.tabstop(1)}\}${snip.tabstop(0)}```
@@ -367,19 +354,16 @@ snippet Td "superscript group" iA
 ^{$1}$0
 endsnippet
 
-#### experimental
 context math(context)
 snippet `(.) pl ([a-zA-Z0-9])` "plus" iA
 ``rv = `${m[1]} + ${m[2]}```
 endsnippet
 
-#### experimental
 context math(context)
 snippet `(.) mn ([a-zA-Z0-9])` "minus" iA
 ``rv = `${m[1]} - ${m[2]}```
 endsnippet
 
-#### experimental
 context math(context)
 snippet `(.) tm ([a-zA-Z0-9])` "times" iA
 ``rv = `${m[1]} \\cdot ${m[2]}```
@@ -445,8 +429,9 @@ snippet `\\graph ` "y = f(x) graph" A
     xmin = $1, xmax = $2, 
     ymin = $3, ymax = $4, 
     axis x line = center, 
-    axis y line = center]
-    \addplot[no marks, domain = $5 : $6]{$7};
+    axis y line = center, 
+    axis equal]
+    \addplot[no marks, very thick, domain = $5 : $6]{$7};
   \end{axis}
 \end{tikzpicture}$0
 endsnippet
@@ -461,7 +446,7 @@ snippet `\\nofsm ` "fsm off" iA
 ``fsm_mode = false;``
 endsnippet
 
-context fsm(context)
+context fsm_mode
 snippet fsm "draw fsm" bA
 \begin{tikzpicture}[> = stealth, node distance = 3em]
   $1
@@ -471,27 +456,27 @@ snippet fsm "draw fsm" bA
 \end{tikzpicture}
 endsnippet
 
-context fsm(context)
+context fsm_mode
 snippet ` n ` "declare node" A
  \node[$3state, minimum size = 2em] ($1) {$2};
 endsnippet
 
-context fsm(context)
+context fsm_mode
 snippet ` an ` "declare anonymous node" A
  \node[$2state, minimum size = 2em] ($1) {};
 endsnippet
 
-context fsm(context)
+context fsm_mode
 snippet `node\[in ` "initial state" A
 node[$0initial, initial text=, 
 endsnippet
 
-context fsm(context)
+context fsm_mode
 snippet `node\[ac ` "accepting state" A
 node[$0accepting, 
 endsnippet
 
-context fsm(context)
+context fsm_mode
 snippet `node\[([ablr])([lr]?) ` "node position" A
 ``
 let position = '';
@@ -524,17 +509,17 @@ if (position === '') {
 ``
 endsnippet
 
-context fsm(context)
+context fsm_mode
 snippet ` e ` "declare edge" A
  ($1) edge[$0] node{$3} ($2)
 endsnippet
 
-context fsm(context)
+context fsm_mode
 snippet `verb~(.), ` "parallel transitions" A
 ``rv = `verb~${m[1]}~,\\verb~${snip.tabstop(0)}```
 endsnippet
 
-context fsm(context)
+context fsm_mode
 snippet `edge\[([ablr])([ablr]?) ` "edge shape & label position" A
 ``
 let position = '';
@@ -577,7 +562,7 @@ if (position === '') {
 ``
 endsnippet
 
-context fsm(context)
+context fsm_mode
 snippet `edge\[bd ` "edge bend" A
 edge[$0bend right, 
 endsnippet
