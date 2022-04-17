@@ -251,6 +251,11 @@ snippet `([^a-zA-Z])\\set ` "set generator" A
 endsnippet
 
 context math(context)
+snippet `([^a-zA-Z])\\vecof ` "vector of" A
+``rv = `${m[1]}\\begin\{bmatrix\} ${snip.tabstop(1)} \\end\{bmatrix\}${snip.tabstop(0)}```
+endsnippet
+
+context math(context)
 snippet `([^a-zA-Z])\\op ` "operator name" A
 ``rv = `${m[1]}\\operatorname\{${snip.tabstop(1)}\}${snip.tabstop(0)}```
 endsnippet
@@ -447,7 +452,7 @@ snippet `\\nofsm ` "fsm off" iA
 endsnippet
 
 context fsm_mode
-snippet fsm "draw fsm" bA
+snippet `\\dfsm ` "draw fsm" bA
 \begin{tikzpicture}[> = stealth, node distance = 3em]
   $1
   \draw[->]
