@@ -16,7 +16,7 @@ snippet ` pl ` "plus" A
  + 
 endsnippet
 
-snippet ` mn ` "minus" A
+snippet ` ms ` "minus" A
  - 
 endsnippet
 
