@@ -34,235 +34,235 @@ endglobal
 ## macros
 
 context math(context)
-snippet `([^a-zA-Z])\\xa ` "alpha" A
-``rv = `${m[1]}\\alpha```
+snippet `\\xa ` "alpha" A
+\alpha
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xA ` "Alpha" A
-``rv = `${m[1]}\\Alpha```
+snippet `\\xA ` "Alpha" A
+\Alpha
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xb ` "beta" A
-``rv = `${m[1]}\\beta```
+snippet `\\xb ` "beta" A
+\beta
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xB ` "Beta" A
-``rv = `${m[1]}\\Beta```
+snippet `\\xB ` "Beta" A
+\Beta
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xg ` "gamma" A
-``rv = `${m[1]}\\gamma```
+snippet `\\xg ` "gamma" A
+\gamma
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xG ` "Gamma" A
-``rv = `${m[1]}\\Gamma```
+snippet `\\xG ` "Gamma" A
+\Gamma
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xd ` "delta" A
-``rv = `${m[1]}\\delta```
+snippet `\\xd ` "delta" A
+\delta
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xD ` "Delta" A
-``rv = `${m[1]}\\Delta```
+snippet `\\xD ` "Delta" A
+\Delta
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xe ` "epsilon" A
-``rv = `${m[1]}\\epsilon```
+snippet `\\xe ` "epsilon" A
+\epsilon
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xE ` "Epsilon" A
-``rv = `${m[1]}\\Epsilon```
+snippet `\\xE ` "Epsilon" A
+\Epsilon
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xve ` "epsilon" A
-``rv = `${m[1]}\\varepsilon```
+snippet `\\xve ` "epsilon" A
+\varepsilon
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xl ` "lambda" A
-``rv = `${m[1]}\\lambda```
+snippet `\\xl ` "lambda" A
+\lambda
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xL ` "Lambda" A
-``rv = `${m[1]}\\Lambda```
+snippet `\\xL ` "Lambda" A
+\Lambda
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xm ` "mu" A
-``rv = `${m[1]}\\mu```
+snippet `\\xm ` "mu" A
+\mu
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xM ` "Mu" A
-``rv = `${m[1]}\\Mu```
+snippet `\\xM ` "Mu" A
+\Mu
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xp ` "pi" A
-``rv = `${m[1]}\\pi```
+snippet `\\xp ` "pi" A
+\pi
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xP ` "Pi" A
-``rv = `${m[1]}\\Pi```
+snippet `\\xP ` "Pi" A
+\Pi
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xt ` "tau" A
-``rv = `${m[1]}\\tau```
+snippet `\\xt ` "tau" A
+\tau
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xT ` "Tau" A
-``rv = `${m[1]}\\Tau```
+snippet `\\xT ` "Tau" A
+\Tau
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xf ` "phi" A
-``rv = `${m[1]}\\phi```
+snippet `\\xf ` "phi" A
+\phi
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xF ` "Phi" A
-``rv = `${m[1]}\\Phi```
+snippet `\\xF ` "Phi" A
+\Phi
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xr ` "rho" A
-``rv = `${m[1]}\\rho```
+snippet `\\xr ` "rho" A
+\rho
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xR ` "Rho" A
-``rv = `${m[1]}\\Rho```
+snippet `\\xR ` "Rho" A
+\Rho
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xs ` "sigma" A
-``rv = `${m[1]}\\sigma```
+snippet `\\xs ` "sigma" A
+\sigma
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xS ` "Sigma" A
-``rv = `${m[1]}\\Sigma```
+snippet `\\xS ` "Sigma" A
+\Sigma
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xh ` "theta" A
-``rv = `${m[1]}\\theta```
+snippet `\\xh ` "theta" A
+\theta
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xH ` "Theta" A
-``rv = `${m[1]}\\Theta```
+snippet `\\xH ` "Theta" A
+\Theta
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xo ` "omega" A
-``rv = `${m[1]}\\omega```
+snippet `\\xo ` "omega" A
+\omega
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\xO ` "Omega" A
-``rv = `${m[1]}\\Omega```
+snippet `\\xO ` "Omega" A
+\Omega
+endsnippet
+
+context math(context)
+snippet `\\then ` "then" A
+\Rightarrow
 endsnippet
 
 context math(context)
 snippet `([^a-zA-Z])\\R ` "reals" A
-``rv = `${m[1]}\\mathbb R```
+\mathbb R
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\then ` "then" A
-``rv = `${m[1]}\\Rightarrow```
+snippet `\\Q ` "rationals" A
+\mathbb Q
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\Q ` "rationals" A
-``rv = `${m[1]}\\mathbb Q```
+snippet `\\Z ` "integers" A
+\mathbb Z
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\Z ` "integers" A
-``rv = `${m[1]}\\mathbb Z```
+snippet `\\N ` "naturals" A
+\mathbb N
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\N ` "naturals" A
-``rv = `${m[1]}\\mathbb N```
+snippet `\\A ` "for all" A
+\forall \,
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\A ` "for all" A
-``rv = `${m[1]}\\forall \\,```
+snippet `\\E ` "there exists" A
+\exists \,
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\E ` "there exists" A
-``rv = `${m[1]}\\exists \\,```
+snippet `\\nullset ` "empty set" A
+\varnothing
+endsnippet
+
+snippet `\\it ` "italics text" A
+\textit{$1}$0
+endsnippet
+
+snippet `\\ve ` "inline verbatim" A
+\verb~$1~$0
+endsnippet
+
+snippet `\\bf ` "bold font" A
+{\boldmath \bfseries $1}$0
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\nullset ` "empty set" A
-``rv = `${m[1]}\\varnothing```
-endsnippet
-
-snippet `(^|[^a-zA-Z])\\it ` "italics text" A
-``rv = `${m[1]}\\textit\{${snip.tabstop(1)}\}${snip.tabstop(0)}```
-endsnippet
-
-snippet `(^|[^a-zA-Z])\\ve ` "inline verbatim" A
-``rv = `${m[1]}\\verb~${snip.tabstop(1)}~${snip.tabstop(0)}```
-endsnippet
-
-snippet `(^|[^a-zA-Z])\\bf ` "bold font" A
-``rv = `${m[1]}\{\\boldmath \\bfseries ${snip.tabstop(1)}\}${snip.tabstop(0)}```
+snippet `\\abs ` "absolute value" A
+\left | $1 \right |$0
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\abs ` "absolute value" A
-``rv = `${m[1]}\\left | ${snip.tabstop(1)} \\right |${snip.tabstop(0)}```
+snippet `\\paren ` "parentheses" A
+\left ( $1 \right )$0
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\paren ` "parentheses" A
-``rv = `${m[1]}\\left \( ${snip.tabstop(1)} \\right \)${snip.tabstop(0)}```
+snippet `\\setof ` "set of" A
+\left \\{ $1 \right \\}$0
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\setof ` "set of" A
-``rv = `${m[1]}\\left \\\{ ${snip.tabstop(1)} \\right \\\\\}${snip.tabstop(0)}```
+snippet `\\set ` "set generator" A
+\left \\{ $1 : $2 \right \\}$0
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\set ` "set generator" A
-``rv = `${m[1]}\\left \\\{ ${snip.tabstop(1)} : ${snip.tabstop(2)} \\right \\\\\}${snip.tabstop(0)}```
+snippet `\\vecof ` "vector of" A
+\begin{bmatrix} $1 \end{bmatrix}$0
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\vecof ` "vector of" A
-``rv = `${m[1]}\\begin\{bmatrix\} ${snip.tabstop(1)} \\end\{bmatrix\}${snip.tabstop(0)}```
+snippet `\\op ` "operator name" A
+\operatorname{$1}$0 
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\op ` "operator name" A
-``rv = `${m[1]}\\operatorname\{${snip.tabstop(1)}\}${snip.tabstop(0)}```
-endsnippet
-
-context math(context)
-snippet `([^a-zA-Z])\\f ` "fraction" A
-``rv = `${m[1]}\\frac\{${snip.tabstop(1)}\}\{${snip.tabstop(2)}\}${snip.tabstop(0)}```
+snippet `\\f ` "fraction" A
+\frac{$1}{$2}$0
 endsnippet
 
 context math(context)
@@ -365,8 +365,18 @@ snippet `(.) pl ([a-zA-Z0-9])` "plus" iA
 endsnippet
 
 context math(context)
-snippet `(.) mn ([a-zA-Z0-9])` "minus" iA
+snippet `(.) ms ([a-zA-Z0-9])` "minus" iA
 ``rv = `${m[1]} - ${m[2]}```
+endsnippet
+
+context math(context)
+snippet ` gt ` "greater than" A
+ > 
+endsnippet
+
+context math(context)
+snippet ` lt ` "less than" A
+ < 
 endsnippet
 
 context math(context)
@@ -382,16 +392,6 @@ endsnippet
 context math(context)
 snippet `([^a-zA-Z])minus` "minus" iA
 ``rv = `${m[1]}-```
-endsnippet
-
-context math(context)
-snippet `([^a-zA-Z])gt` "greater than" A
-``rv = `${m[1]}>```
-endsnippet
-
-context math(context)
-snippet `([^a-zA-Z])lt` "less than" A
-``rv = `${m[1]}<```
 endsnippet
 
 context math(context)
