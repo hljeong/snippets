@@ -184,7 +184,7 @@ snippet `\\then ` "then" A
 endsnippet
 
 context math(context)
-snippet `([^a-zA-Z])\\R ` "reals" A
+snippet `\\R ` "reals" A
 \mathbb R
 endsnippet
 
