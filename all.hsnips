@@ -94,20 +94,20 @@ snippet prm "prime" iA
 '
 endsnippet
 
-snippet gt "greater than" A
->
+snippet ` lt ` "less than" A
+ < 
 endsnippet
 
-snippet gt "greater than" i
->
+snippet ` gt ` "greater than" A
+ > 
 endsnippet
 
-snippet lt "less than" A
-<
+snippet ` pl ` "plus" A
+ + 
 endsnippet
 
-snippet lt "less than" i
-<
+snippet ` ms ` "minus" A
+ - 
 endsnippet
 
 snippet qsm "question mark" iA

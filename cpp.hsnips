@@ -2,22 +2,6 @@
 
 ## operators
 
-snippet ` lt ` "less than" A
- < 
-endsnippet
-
-snippet ` gt ` "greater than" A
- > 
-endsnippet
-
-snippet ` pl ` "plus" A
- + 
-endsnippet
-
-snippet ` ms ` "minus" A
- - 
-endsnippet
-
 snippet ` md ` "mod" A
  % 
 endsnippet
