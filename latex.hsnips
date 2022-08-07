@@ -1,27 +1,6 @@
-# todo
-
-## test math mode and text mode
-## xhat, xbar, xcal
-## autowrap math mode macros in text mode?
-## cycle through similar macros
-
 # globals
 
 global
-// const math = (context) => {
-//   for (scope of context.scopes) {
-//     if (scope.startsWith('meta.math')) {
-//       return true;
-//     } else if (scope.startsWith('meta.text')) {
-//       return false;
-//     }
-//   }
-//   return false;
-// };
-const math = (context) => true;
-
-// const text = (context) => !math(context);
-const text = (context) => true;
 
 let fsm_mode = false;
 
@@ -33,187 +12,150 @@ endglobal
 
 ## macros
 
-context math(context)
 snippet `\\xa ` "alpha" A
 \alpha
 endsnippet
 
-context math(context)
 snippet `\\xA ` "Alpha" A
 \Alpha
 endsnippet
 
-context math(context)
 snippet `\\xb ` "beta" A
 \beta
 endsnippet
 
-context math(context)
 snippet `\\xB ` "Beta" A
 \Beta
 endsnippet
 
-context math(context)
 snippet `\\xg ` "gamma" A
 \gamma
 endsnippet
 
-context math(context)
 snippet `\\xG ` "Gamma" A
 \Gamma
 endsnippet
 
-context math(context)
 snippet `\\xd ` "delta" A
 \delta
 endsnippet
 
-context math(context)
 snippet `\\xD ` "Delta" A
 \Delta
 endsnippet
 
-context math(context)
 snippet `\\xe ` "epsilon" A
 \epsilon
 endsnippet
 
-context math(context)
 snippet `\\xE ` "Epsilon" A
 \Epsilon
 endsnippet
 
-context math(context)
 snippet `\\xve ` "epsilon" A
 \varepsilon
 endsnippet
 
-context math(context)
 snippet `\\xl ` "lambda" A
 \lambda
 endsnippet
 
-context math(context)
 snippet `\\xL ` "Lambda" A
 \Lambda
 endsnippet
 
-context math(context)
 snippet `\\xm ` "mu" A
 \mu
 endsnippet
 
-context math(context)
 snippet `\\xM ` "Mu" A
 \Mu
 endsnippet
 
-context math(context)
 snippet `\\xp ` "pi" A
 \pi
 endsnippet
 
-context math(context)
 snippet `\\xP ` "Pi" A
 \Pi
 endsnippet
 
-context math(context)
 snippet `\\xt ` "tau" A
 \tau
 endsnippet
 
-context math(context)
 snippet `\\xT ` "Tau" A
 \Tau
 endsnippet
 
-context math(context)
 snippet `\\xf ` "phi" A
 \phi
 endsnippet
 
-context math(context)
 snippet `\\xF ` "Phi" A
 \Phi
 endsnippet
 
-context math(context)
 snippet `\\xr ` "rho" A
 \rho
 endsnippet
 
-context math(context)
 snippet `\\xR ` "Rho" A
 \Rho
 endsnippet
 
-context math(context)
 snippet `\\xs ` "sigma" A
 \sigma
 endsnippet
 
-context math(context)
 snippet `\\xS ` "Sigma" A
 \Sigma
 endsnippet
 
-context math(context)
 snippet `\\xh ` "theta" A
 \theta
 endsnippet
 
-context math(context)
 snippet `\\xH ` "Theta" A
 \Theta
 endsnippet
 
-context math(context)
 snippet `\\xo ` "omega" A
 \omega
 endsnippet
 
-context math(context)
 snippet `\\xO ` "Omega" A
 \Omega
 endsnippet
 
-context math(context)
 snippet `\\then ` "then" A
 \Rightarrow
 endsnippet
 
-context math(context)
 snippet `\\R ` "reals" A
 \mathbb R
 endsnippet
 
-context math(context)
 snippet `\\Q ` "rationals" A
 \mathbb Q
 endsnippet
 
-context math(context)
 snippet `\\Z ` "integers" A
 \mathbb Z
 endsnippet
 
-context math(context)
 snippet `\\N ` "naturals" A
 \mathbb N
 endsnippet
 
-context math(context)
 snippet `\\A ` "for all" A
 \forall \,
 endsnippet
 
-context math(context)
 snippet `\\E ` "there exists" A
 \exists \,
 endsnippet
 
-context math(context)
 snippet `\\nullset ` "empty set" A
 \varnothing
 endsnippet
@@ -230,42 +172,34 @@ snippet `\\bf ` "bold font" A
 {\boldmath \bfseries $1}$0
 endsnippet
 
-context math(context)
 snippet `\\abs ` "absolute value" A
 \left | $1 \right |$0
 endsnippet
 
-context math(context)
 snippet `\\paren ` "parentheses" A
 \left ( $1 \right )$0
 endsnippet
 
-context math(context)
 snippet `\\setof ` "set of" A
 \left \\{ $1 \right \\}$0
 endsnippet
 
-context math(context)
 snippet `\\set ` "set generator" A
 \left \\{ $1 : $2 \right \\}$0
 endsnippet
 
-context math(context)
 snippet `\\vecof ` "vector of" A
 \begin{bmatrix} $1 \end{bmatrix}$0
 endsnippet
 
-context math(context)
 snippet `\\op ` "operator name" A
 \operatorname{$1}$0 
 endsnippet
 
-context math(context)
 snippet `\\f ` "fraction" A
 \frac{$1}{$2}$0
 endsnippet
 
-context math(context)
 snippet `\\dtof([^/]*)/([^/]*)\\dtof ` "divide to fraction" A
 ``rv = `\\frac\{${m[1].trim()}\}\{${m[2].trim()}\}```
 endsnippet
@@ -290,33 +224,28 @@ snippet begin "begin/end block" i
 \end{$1}
 endsnippet
 
-context text(context)
 snippet imm "inline math" iA
 $$1$
 endsnippet
 
-context text(context)
 snippet bm "block math" b
 \[
   $0
 \]
 endsnippet
 
-context text(context)
 snippet bn "numbered block math" b
 \begin{equation}
   $0
 \end{equation}
 endsnippet
 
-context text(context)
 snippet bmm "multiline block math" b
 \begin{align*}
   $0
 \end{align*}
 endsnippet
 
-context text(context)
 snippet `(^|[^a-zA-Z])im([a-zA-Z])([^a-zA-Z])` "single character inline math" A
 ``rv = `${m[1]}\$${m[2]}\$${m[3]}```
 endsnippet
@@ -329,77 +258,55 @@ snippet `\\noautosubs ` "autosubscript off" A
 ``autosubscript_mode = false``
 endsnippet
 
-context math(context) && autosubscript_mode
+context autosubscript_mode
 snippet `([a-zA-Z])([0-9])` "autosubscript" A
 ``rv = `${m[1]}_${m[2]}```
 endsnippet
 
-context math(context)
 snippet `([a-zA-Z])_([0-9][0-9])` "extended autosubscript" A
 ``rv = `${m[1]}_\{${m[2]}${snip.tabstop(1)}\}${snip.tabstop(0)}```
 endsnippet
 
-context math(context)
 snippet sb "subscript" iA
 _
 endsnippet
 
-context math(context)
 snippet Sb "subscript group" iA
 _{$1}$0
 endsnippet
 
-context math(context)
 snippet td "superscript" iA
 ^
 endsnippet
 
-context math(context)
 snippet Td "superscript group" iA
 ^{$1}$0
 endsnippet
 
-context math(context)
 snippet `(.) pl ([a-zA-Z0-9])` "plus" iA
 ``rv = `${m[1]} + ${m[2]}```
 endsnippet
 
-context math(context)
 snippet `(.) ms ([a-zA-Z0-9])` "minus" iA
 ``rv = `${m[1]} - ${m[2]}```
 endsnippet
 
-context math(context)
 snippet ` gt ` "greater than" A
  > 
 endsnippet
 
-context math(context)
 snippet ` lt ` "less than" A
  < 
 endsnippet
 
-context math(context)
 snippet `(.) tm ([a-zA-Z0-9])` "times" iA
 ``rv = `${m[1]} \\cdot ${m[2]}```
 endsnippet
 
-context math(context)
-snippet `([^a-zA-Z])plus` "plus" iA
-``rv = `${m[1]}+```
-endsnippet
-
-context math(context)
-snippet `([^a-zA-Z])minus` "minus" iA
-``rv = `${m[1]}-```
-endsnippet
-
-context math(context)
 snippet apes "aligned equals" A
 &=
 endsnippet
 
-context math(context)
 snippet dfes "define" A
 :=
 endsnippet
