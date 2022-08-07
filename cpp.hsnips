@@ -1,9 +1,7 @@
-# todo
+# quality of life
 
-## if
+## operators
 
-# test
-#
 snippet ` lt ` "less than" A
  < 
 endsnippet
@@ -20,6 +18,10 @@ snippet ` ms ` "minus" A
  - 
 endsnippet
 
+snippet ` md ` "mod" A
+ % 
+endsnippet
+
 snippet ` ba ` "bitwise and" A
  & 
 endsnippet
@@ -27,14 +29,6 @@ endsnippet
 snippet ` bo ` "bitwise or" A
  | 
 endsnippet
-
-snippet ` xr ` "xor" A
- ^ 
-endsnippet
-
-# quality of life
-
-## operators
 
 snippet ` xor ` "xor" A
  ^ 
@@ -68,6 +62,10 @@ snippet ` meq ` "minus equals" A
  -= 
 endsnippet
 
+snippet ` mdeq ` "mod equals" A
+ %= 
+endsnippet
+
 snippet ` eq ` "equal to" iA
  == 
 endsnippet
@@ -80,24 +78,22 @@ snippet ` and ` "and" A
  && 
 endsnippet
 
+snippet ` rs ` "right shift" A
+ >> 
+endsnippet
+
+snippet ` ls ` "left shift" A
+ << 
+endsnippet
+
 snippet `[ \(]not ` "not" A
 ``rv = `${m[0][0]}!```
-endsnippet
-
-## input
-
-snippet `cin ` "read" A
-cin >> 
-endsnippet
-
-snippet `(>> .* )(then)` "then read" A
-``rv = `${m[1]}>>```
 endsnippet
 
 ## output 
 
 snippet `pr ` "print" A
-cout << $1;$0
+cout << $1;
 endsnippet
 
 snippet prln "print empty line"
@@ -108,30 +104,27 @@ snippet `prln ` "print line" A
 cout << $1 << endl;$0
 endsnippet
 
-snippet `(<< .* )space` "space" A
-``rv = `${m[1]}<< ' '```
-endsnippet
+## if
 
-snippet `(<< .* )then` "then print" A
-``rv = `${m[1]}<< ' ' <<```
+snippet `if ` "if" A
+if ($1)$0
 endsnippet
 
 ## for
 
-snippet `for([ldse]*)([ijk])([ldse]*) ` "for" A
+snippet `for([dse]*)([ijkv])([dse]*) ` "for" A
 ``
 let stop = 0;
 let flags = m[1] + m[3];
 let decreasing = flags.includes('d');
 let set = flags.includes('s');
 let toggle_equals = flags.includes('e');
-let line = flags.includes('l');
 let varname = m[2];
 let start = 0;
 let check = '<';
 let end = 0;
 let increment = '++';
-if (varname === 'v') {  // todo: fix, doesnt work
+if (varname === 'v') {
   varname = snip.tabstop(++stop);
 }
 if (decreasing || set) {
@@ -150,11 +143,7 @@ if (decreasing) {
 if (!decreasing || set) {
   end = snip.tabstop(++stop);
 }
-if (line) {
-  rv = `for (int ${varname} = ${start}; ${varname} ${check} ${end}; ${increment}${varname}) ${snip.tabstop(0)}`;
-} else {
-  rv = `for (int ${varname} = ${start}; ${varname} ${check} ${end}; ${increment}${varname}) \{\n  ${snip.tabstop(0)}\n\}`;
-}
+rv = `for (int ${varname} = ${start}; ${varname} ${check} ${end}; ${increment}${varname})${snip.tabstop(0)}`;
 ``
 endsnippet
 
@@ -174,10 +163,276 @@ using vi = vc<int>;
 using vll = vc<ll>;
 using pii = pair<int, int>;
 
-template<class T> bool ckmin(T& a, const T& b) { return b < a ? a = b, 1 : 0; }
-template<class T> bool ckmax(T& a, const T& b) { return a < b ? a = b, 1 : 0; }
+template<class T> bool ckmin(T &a, const T &b) { return b < a ? a = b, 1 : 0; }
+template<class T> bool ckmax(T &a, const T &b) { return a < b ? a = b, 1 : 0; }
 
 int main() {
   $0
 }
+endsnippet
+
+snippet dinic "max flow"
+using fse = vc<pair<int, pair<int, ll>>>;
+using fsg = pair<vi, pair<fse, int>>;
+
+void add_edge(fsg &g, int u, int v, ll w) {
+  g.B.A[g.B.B].A = g.A[u]; g.B.A[g.B.B].B.A = v; g.B.A[g.B.B].B.B = w;
+  g.A[u] = g.B.B++;
+}
+
+bool bfs(fsg &g, int s, int t, vi &cur, vi &lvl) {
+  fill(lvl.begin(), lvl.end(), -1); lvl[s] = 0;
+  for (int i = 0; i < g.A.size(); ++i) cur[i] = g.A[i];
+  queue<int> q; q.push(s);
+  while (q.size()) {
+    int p = q.front(); q.pop();
+    for (int e = g.A[p]; e; e = g.B.A[e].A) {
+      int to = g.B.A[e].B.A; ll v = g.B.A[e].B.B;
+      if (v && lvl[to] == -1) {
+        lvl[to] = lvl[p] + 1;
+        q.push(to);
+      }
+    }
+  }
+  return lvl[t] != -1;
+}
+
+ll dfs(fsg &g, int p, int t, ll f, vi &cur, vi &lvl) {
+  if (p == t) return f;
+  ll r = f;
+  for (int e = cur[p]; e && r; e = g.B.A[e].A) {
+    cur[p] = e;
+    int to = g.B.A[e].B.A; ll v = g.B.A[e].B.B;
+    if (v && lvl[to] == lvl[p] + 1) {
+      ll c = dfs(g, to, t, min(v, r), cur, lvl);
+      r -= c; g.B.A[e].B.B -= c; g.B.A[e ^ 1].B.B += c;
+    }
+  }
+  return f - r;
+}
+
+ll dinic(fsg &g, int s, int t) {
+  ll ans = 0, inf = 0x3f3f3f3f3f3f3f3fll;
+  vi lvl(g.A.size()), cur(g.A.size());
+  while (bfs(g, s, t, cur, lvl)) ans += dfs(g, s, t, inf, cur, lvl);
+  return ans;
+}
+endsnippet
+
+snippet dsu "dsu"
+using dsu = pair<vi, vi>;
+
+int find(dsu &d, int i) {
+  return d.A[i] == i ? i : (d.A[i] = find(d, d.A[i]));
+}
+
+bool combine(dsu &d, int i, int j) {
+  i = find(d, i); j = find(d, j);
+  if (i != j) {
+    if (d.B[i] < d.B[j]) swap(i, j);
+    d.A[j] = i; d.B[i] += d.B[j];
+    return true;
+  }
+  return false;
+}
+endsnippet
+
+snippet sgt "segment tree"
+const int maxn = 2e5 + 5; 
+
+int sgt[4 * maxn], sid = 0;
+
+int merge(int a, int b) { return a + b; }
+
+int mid(int l, int r) { return l + (r - l) / 2; }
+
+void pull(int u) { sgt[u] = merge(sgt[u << 1], sgt[u << 1 | 1]); }
+
+void build(vi &a, int u = 1, int l = 0, int r = maxn - 1) {
+  if (l != r) {
+    int m = mid(l, r);
+    build(a, u << 1, l, m); build(a, u << 1 | 1, m + 1, r);
+    pull(u);
+  } else if (l < a.size()) sgt[u] = a[l];
+}
+
+void upd(int i, int v, int u = 1, int l = 0, int r = maxn - 1) {
+  if (l == r) sgt[u] = v;
+  else {
+    int m = mid(l, r);
+    upd(i, j, v, u << 1, l, m); upd(i, j, v, u << 1 | 1, m + 1, r);
+    pull(u);
+  }
+}
+
+int qry(int i, int j, int u = 1, int l = 0, int r = maxn - 1) {
+  if (r < i || j < l) return sid;
+  else if (i <= l && r <= j) return sgt[u];
+  else {
+    int m = mid(l, r);
+    return merge(qry(i, j, u << 1, l, m), qry(i, j, u << 1 | 1, m + 1, r));
+  }
+}
+
+int qry(int i) { return qry(i, i); }
+endsnippet
+
+snippet sgtll "segment tree (long long)"
+const int maxn = 2e5 + 5; 
+
+ll sgt[4 * maxn], sid = 0;
+
+ll merge(ll a, ll b) { return a + b; }
+
+int mid(int l, int r) { return l + (r - l) / 2; }
+
+void pull(int u) { sgt[u] = merge(sgt[u << 1], sgt[u << 1 | 1]); }
+
+void build(vll &a, int u = 1, int l = 0, int r = maxn - 1) {
+  if (l != r) {
+    int m = mid(l, r);
+    build(a, u << 1, l, m); build(a, u << 1 | 1, m + 1, r);
+    pull(u);
+  } else if (l < a.size()) sgt[u] = a[l];
+}
+
+void upd(int i, ll v, int u = 1, int l = 0, int r = maxn - 1) {
+  if (l == r) sgt[u] = v;
+  else {
+    int m = mid(l, r);
+    upd(i, j, v, u << 1, l, m); upd(i, j, v, u << 1 | 1, m + 1, r);
+    pull(u);
+  }
+}
+
+ll qry(int i, int j, int u = 1, int l = 0, int r = maxn - 1) {
+  if (r < i || j < l) return sid;
+  else if (i <= l && r <= j) return sgt[u];
+  else {
+    int m = mid(l, r);
+    return merge(qry(i, j, u << 1, l, m), qry(i, j, u << 1 | 1, m + 1, r));
+  }
+}
+
+ll qry(int i) { return qry(i, i); }
+endsnippet
+
+snippet lzsgt "lazy segment tree"
+const int maxn = 2e5 + 5; 
+
+int sgt[4 * maxn], lz[4 * maxn], sid = 0;
+
+int merge(int a, int b) { return a + b; }
+
+int merge(int a, int b, int l, int r) { return a + b * (r - l + 1); }
+
+int mid(int l, int r) { return l + (r - l) / 2; }
+
+void pull(int u) { sgt[u] = merge(sgt[u << 1], sgt[u << 1 | 1]); }
+
+void push(int u, int l, int r) {
+  if (lz[u] != sid) {
+    sgt[u] = merge(sgt[u], lz[u], l, r);
+    if (l != r) {
+      lz[u << 1] = merge(lz[u << 1], lz[u]);
+      lz[u << 1 | 1] = merge(lz[u << 1 | 1], lz[u]);
+    }
+    lz[u] = sid;
+  }
+}
+
+void build(vi &a, int u = 1, int l = 0, int r = maxn - 1) {
+  if (l != r) {
+    int m = mid(l, r);
+    build(a, u << 1, l, m); build(a, u << 1 | 1, m + 1, r);
+    pull(u);
+  } else if (l < a.size()) sgt[u] = a[l];
+}
+
+void upd(int i, int j, int v, int u = 1, int l = 0, int r = maxn - 1) {
+  push(u, l, r);
+  if (r < i || j < l) return;
+  else if (i <= l && r <= j) {
+    lz[u] = v;
+    push(u, l, r);
+  } else {
+    int m = mid(l, r);
+    upd(i, j, v, u << 1, l, m); upd(i, j, v, u << 1 | 1, m + 1, r);
+    pull(u);
+  }
+}
+
+void upd(int i, int v) { upd(i, i, v); }
+
+int qry(int i, int j, int u = 1, int l = 0, int r = maxn - 1) {
+  push(u, l, r);
+  if (r < i || j < l) return sid;
+  else if (i <= l && r <= j) return sgt[u];
+  else {
+    int m = mid(l, r);
+    return merge(qry(i, j, u << 1, l, m), qry(i, j, u << 1 | 1, m + 1, r));
+  }
+}
+
+int qry(int i) { return qry(i, i); }
+endsnippet
+
+snippet lzsgtll "lazy segment tree (long long)"
+const int maxn = 2e5 + 5; 
+
+ll sgt[4 * maxn], lz[4 * maxn], sid = 0;
+
+ll merge(ll a, ll b) { return a + b; }
+
+ll merge(ll a, ll b, int l, int r) { return a + b * (r - l + 1); }
+
+int mid(int l, int r) { return l + (r - l) / 2; }
+
+void pull(int u) { sgt[u] = merge(sgt[u << 1], sgt[u << 1 | 1]); }
+
+void push(int u, int l, int r) {
+  if (lz[u] != sid) {
+    sgt[u] = merge(sgt[u], lz[u], l, r);
+    if (l != r) {
+      lz[u << 1] = merge(lz[u << 1], lz[u]);
+      lz[u << 1 | 1] = merge(lz[u << 1 | 1], lz[u]);
+    }
+    lz[u] = sid;
+  }
+}
+
+void build(vll &a, int u = 1, int l = 0, int r = maxn - 1) {
+  if (l != r) {
+    int m = mid(l, r);
+    build(a, u << 1, l, m); build(a, u << 1 | 1, m + 1, r);
+    pull(u);
+  } else if (l < a.size()) sgt[u] = a[l];
+}
+
+void upd(int i, int j, ll v, int u = 1, int l = 0, int r = maxn - 1) {
+  push(u, l, r);
+  if (r < i || j < l) return;
+  else if (i <= l && r <= j) {
+    lz[u] = v;
+    push(u, l, r);
+  } else {
+    int m = mid(l, r);
+    upd(i, j, v, u << 1, l, m); upd(i, j, v, u << 1 | 1, m + 1, r);
+    pull(u);
+  }
+}
+
+void upd(int i, ll v) { upd(i, i, v); }
+
+ll qry(int i, int j, int u = 1, int l = 0, int r = maxn - 1) {
+  push(u, l, r);
+  if (r < i || j < l) return sid;
+  else if (i <= l && r <= j) return sgt[u];
+  else {
+    int m = mid(l, r);
+    return merge(qry(i, j, u << 1, l, m), qry(i, j, u << 1 | 1, m + 1, r));
+  }
+}
+
+ll qry(int i) { return qry(i, i); }
 endsnippet
